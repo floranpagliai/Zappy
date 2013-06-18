@@ -22,19 +22,24 @@ void MyGame::update(void) {
     }
     camera_.update(gameClock_, input_);
     if (input_.isKeyDown(gdl::Keys::F1) == true)
-        camera_.setPosition(camera_.getPosition().x + 50.0f, camera_.getPosition().y, camera_.getPosition().z);
-    if (input_.isKeyDown(gdl::Keys::F2) == true && camera_.getPosition().x >= 0)
-        camera_.setPosition(camera_.getPosition().x - 50.0f, camera_.getPosition().y, camera_.getPosition().z);
+        camera_.setPosition(camera_.getPosition().x + 10.0f, camera_.getPosition().y, camera_.getPosition().z);
+    if (input_.isKeyDown(gdl::Keys::F2) == true && camera_.getPosition().x - 10.0f >= 0)
+        camera_.setPosition(camera_.getPosition().x - 10.0f, camera_.getPosition().y, camera_.getPosition().z);
     if (input_.isKeyDown(gdl::Keys::F3) == true)
-        camera_.setPosition(camera_.getPosition().x, camera_.getPosition().y + 50.0f, camera_.getPosition().z);
-    if (input_.isKeyDown(gdl::Keys::F4) == true && camera_.getPosition().y >= 0)
-        camera_.setPosition(camera_.getPosition().x, camera_.getPosition().y - 50.0f, camera_.getPosition().z);
+        camera_.setPosition(camera_.getPosition().x, camera_.getPosition().y + 10.0f, camera_.getPosition().z);
+    if (input_.isKeyDown(gdl::Keys::F4) == true && camera_.getPosition().y - 10.0f >= 0)
+        camera_.setPosition(camera_.getPosition().x, camera_.getPosition().y - 10.0f, camera_.getPosition().z);
     if (input_.isKeyDown(gdl::Keys::F5) == true)
-        camera_.setPosition(camera_.getPosition().x, camera_.getPosition().y, camera_.getPosition().z + 50.0f);
-    if (input_.isKeyDown(gdl::Keys::F6) == true)
-        camera_.setPosition(camera_.getPosition().x, camera_.getPosition().y, camera_.getPosition().z - 50.0f);
-    if (input_.isKeyDown(gdl::Keys::F7) == true)
-        std::cout << camera_.getPosition().z << std::endl;
+        camera_.setPosition(camera_.getPosition().x, camera_.getPosition().y, camera_.getPosition().z + 10.0f);
+    if (input_.isKeyDown(gdl::Keys::F6) == true  && camera_.getPosition().z - 10.0f >= 0)
+        camera_.setPosition(camera_.getPosition().x, camera_.getPosition().y, camera_.getPosition().z - 10.0f);
+    if (input_.isKeyDown(gdl::Keys::F7) == true) {
+        std::cout << "==========================" << std::endl;
+        std::cout << "X: " << camera_.getPosition().x << std::endl;
+        std::cout << "Y: " << camera_.getPosition().y << std::endl;
+        std::cout << "Z: " << camera_.getPosition().z << std::endl;
+        std::cout << "==========================" << std::endl;
+    }
     if (input_.isKeyDown(gdl::Keys::Escape) == true)
         exit(0);
 }
