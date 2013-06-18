@@ -11,7 +11,7 @@ Ground::~Ground() {
 }
 
 void Ground::initialize(void) {
-    this->texture_ = gdl::Image::load("assets/ground.png");
+    this->texture_ = gdl::Image::load("client/assets/ground.png");
 }
 
 void Ground::update(gdl::GameClock const & gameClock, gdl::Input & input) {

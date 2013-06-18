@@ -1,6 +1,6 @@
 #include "Camera.h"
 
-Camera::Camera(void) : position_(0.0f, 1000.0f, 0.0f), rotation_(0.0f, 0.0f, 0.0f) {
+Camera::Camera(void) : position_(0.0f, 1000.0f, 20.0f), rotation_(0.0f, 0.0f, 0.0f) {
 }
 
 void Camera::initialize(void) {
@@ -10,8 +10,8 @@ void Camera::initialize(void) {
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
     gluPerspective(70.0f, 800.0f / 600.0f, 1.0f, 50000.0f);
-    gluLookAt(position_.x, position_.y, -1.0f,
-            position_.x, 0.0f, position_.z,
+    gluLookAt(position_.x, position_.y, position_.z,
+            position_.x, 0.0f, position_.z - 20,
             0.0f, 1.0f, 0.0f);
 
     ////////////////////////////////

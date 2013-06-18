@@ -1,6 +1,6 @@
 NAME	=	zappy
 
-DIR	=	src/
+DIR	=	client/src/
 
 SRC	=	$(DIR)main.cpp\
 		$(DIR)MyGame.cpp\
@@ -11,9 +11,9 @@ OBJ	=	$(SRC:.cpp=.o)
 
 CC	=	g++
 
-INCLUDES=	-I./include -I./lib/include
+INCLUDES=	-I./client/include -I./client/lib/include
 
-LDFLAGS	=	-L./lib -Wl,--rpath=./lib -lgdl_gl -lGL -lGLU
+LDFLAGS	=	-L./client/lib -Wl,--rpath=./client/lib -lgdl_gl -lGL -lGLU
 
 CFLAGS	=	-Wall -Werror
 
@@ -24,9 +24,9 @@ $(NAME):	$(OBJ)
 all:		$(NAME)
 
 clean:
-		rm -rf *.o
-		rm -rf *~
-		rm -rf *#
+		rm -R -f *.o
+		rm -R -f *~
+		rm -R -f *#
 
 fclean:		clean
 		rm -rf $(NAME)

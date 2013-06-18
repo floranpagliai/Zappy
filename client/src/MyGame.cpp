@@ -21,19 +21,19 @@ void MyGame::update(void) {
         (*it)->update(gameClock_, input_);
     }
     camera_.update(gameClock_, input_);
-    if (input_.isKeyDown(gdl::Keys::F1) == true)
+    if (input_.isKeyDown(gdl::Keys::Right) == true)
         camera_.setPosition(camera_.getPosition().x + 10.0f, camera_.getPosition().y, camera_.getPosition().z);
-    if (input_.isKeyDown(gdl::Keys::F2) == true && camera_.getPosition().x - 10.0f >= 0)
+    if (input_.isKeyDown(gdl::Keys::Left) == true && camera_.getPosition().x - 10.0f >= 0)
         camera_.setPosition(camera_.getPosition().x - 10.0f, camera_.getPosition().y, camera_.getPosition().z);
-    if (input_.isKeyDown(gdl::Keys::F3) == true)
-        camera_.setPosition(camera_.getPosition().x, camera_.getPosition().y + 10.0f, camera_.getPosition().z);
-    if (input_.isKeyDown(gdl::Keys::F4) == true && camera_.getPosition().y - 10.0f >= 0)
-        camera_.setPosition(camera_.getPosition().x, camera_.getPosition().y - 10.0f, camera_.getPosition().z);
-    if (input_.isKeyDown(gdl::Keys::F5) == true)
+    if (input_.isKeyDown(gdl::Keys::Down) == true)
         camera_.setPosition(camera_.getPosition().x, camera_.getPosition().y, camera_.getPosition().z + 10.0f);
-    if (input_.isKeyDown(gdl::Keys::F6) == true  && camera_.getPosition().z - 10.0f >= 0)
+    if (input_.isKeyDown(gdl::Keys::Up) == true && camera_.getPosition().z - 10.0f >= 1)
         camera_.setPosition(camera_.getPosition().x, camera_.getPosition().y, camera_.getPosition().z - 10.0f);
-    if (input_.isKeyDown(gdl::Keys::F7) == true) {
+    if (input_.isKeyDown(gdl::Keys::F1) == true)
+        camera_.setPosition(camera_.getPosition().x, camera_.getPosition().y + 10.0f, camera_.getPosition().z);
+    if (input_.isKeyDown(gdl::Keys::F2) == true && camera_.getPosition().y - 10.0f >= 0)
+        camera_.setPosition(camera_.getPosition().x, camera_.getPosition().y - 10.0f, camera_.getPosition().z);
+    if (input_.isKeyDown(gdl::Keys::F3) == true) {
         std::cout << "==========================" << std::endl;
         std::cout << "X: " << camera_.getPosition().x << std::endl;
         std::cout << "Y: " << camera_.getPosition().y << std::endl;
