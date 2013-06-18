@@ -15,10 +15,11 @@
 class Ground : public AObject {
 private:
     gdl::Image texture_;
-    IRessourceManager manager_;
+    gdl::Model model_;
+    IRessourceManager *manager_;
 
 public:
-    Ground(int, int, IRessourceManager);
+    Ground(int, int, IRessourceManager *);
     virtual ~Ground();
 
     void initialize(void);

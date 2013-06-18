@@ -4,6 +4,7 @@
 #include <GL/gl.h>
 #include <GL/glu.h>
 
+#include <iostream>
 #include "Image.hpp"
 
 enum e_Ressource {
