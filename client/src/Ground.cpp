@@ -1,9 +1,10 @@
 #include "Ground.h"
 
-Ground::Ground(int maxX, int maxZ) {
-    this->position_.x = maxX * (BLOCK_SIZE * 2);;
+Ground::Ground(int maxX, int maxZ, IRessourceManager manager) {
+    this->position_.x = maxX * (BLOCK_SIZE * 2);
     this->position_.y = 0.0f;
-    this->position_.z = maxZ * (BLOCK_SIZE * 2);;
+    this->position_.z = maxZ * (BLOCK_SIZE * 2);
+    this->manager_ = manager;
     this->initialize();
 }
 
@@ -11,7 +12,8 @@ Ground::~Ground() {
 }
 
 void Ground::initialize(void) {
-    this->texture_ = gdl::Image::load("client/assets/ground.png");
+    this->texture_ = manager_.getRessource(GROUND);
+    //this->texture_ = gdl::Image::load("client/assets/ground.png");
 }
 
 void Ground::update(gdl::GameClock const & gameClock, gdl::Input & input) {

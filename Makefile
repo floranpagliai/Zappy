@@ -5,7 +5,8 @@ DIR	=	client/src/
 SRC	=	$(DIR)main.cpp\
 		$(DIR)MyGame.cpp\
 		$(DIR)Camera.cpp\
-		$(DIR)Ground.cpp
+		$(DIR)Ground.cpp\
+		$(DIR)IRessourceManager.cpp\
 
 OBJ	=	$(SRC:.cpp=.o)
 
@@ -24,7 +25,7 @@ $(NAME):	$(OBJ)
 all:		$(NAME)
 
 clean:
-		rm -R -f *.o
+		rm -R -f $(DIR)*.o
 		rm -R -f *~
 		rm -R -f *#
 

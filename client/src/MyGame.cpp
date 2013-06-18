@@ -6,10 +6,10 @@ void MyGame::initialize() {
     window_.setWidth(WINDOW_WIDHT);
     window_.create();
     camera_.initialize();
-
+    //this->manager_.initialize();
     for (int i = 0; i != 10; i++) {
         for (int x = 0; x != 10; x++) {
-            this->objects_.push_front(new Ground(i, x));
+            this->objects_.push_front(new Ground(i, x, this->manager_));
         }
     }
     for (std::list<AObject*>::iterator it = this->objects_.begin(); it != this->objects_.end(); ++it)

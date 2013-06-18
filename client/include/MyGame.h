@@ -12,9 +12,10 @@ class MyGame : public gdl::Game {
 private:
     std::list<AObject*> objects_;
     Camera camera_;
+    IRessourceManager manager_;
 
 public:
-    virtual void initialize();
+    virtual void initialize(void);
     virtual void update(void);
     virtual void draw(void);
     virtual void unload(void);

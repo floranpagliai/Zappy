@@ -28,6 +28,7 @@
 #include <iomanip>
 
 #include "Vector3f.hpp"
+#include "IRessourceManager.h"
 
 class AObject {
 protected:
