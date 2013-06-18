@@ -3,7 +3,7 @@
 
 #include "AObject.hpp"
 #include "Camera.h"
-#include "Map.h"
+#include "Ground.h"
 
 #define WINDOW_HEIGHT 700
 #define WINDOW_WIDHT 1024

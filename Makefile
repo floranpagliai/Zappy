@@ -5,7 +5,7 @@ DIR	=	src/
 SRC	=	$(DIR)main.cpp\
 		$(DIR)MyGame.cpp\
 		$(DIR)Camera.cpp\
-		$(DIR)Map.cpp
+		$(DIR)Ground.cpp
 
 OBJ	=	$(SRC:.cpp=.o)
 
