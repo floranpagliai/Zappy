@@ -19,7 +19,7 @@ public:
 private:
     IRessourceManager *manager_;
     int sizeX_;
-    int sizeY_;
+    int sizeZ_;
 };
 
 #endif	/* MAP_H */

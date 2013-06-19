@@ -9,6 +9,7 @@
 #define	MAPELEMENT_H
 
 #include "AObject.hpp"
+#include "IRessourceManager.h"
 
 class Ground : public AObject {
 private:
@@ -28,10 +29,9 @@ class Tree : public AObject {
 private:
     IRessourceManager *manager_;
     gdl::Image texture_;
-    int type_;
 
 public:
-    Tree(int, int, int, int, IRessourceManager *);
+    Tree(int, int, int, eType, IRessourceManager *);
     virtual ~Tree();
 
     void initialize(void);

@@ -1,21 +1,10 @@
 #ifndef IRessourceManager_H
 #define	IRessourceManager_H
 
-#include <GL/gl.h>
-#include <GL/glu.h>
-
-#include <iostream>
-#include "Image.hpp"
-
-enum e_Ressource {
-    GROUND,
-    TRUNK,
-    LEAF,
-    TRANTORIEN
-};
+#include "AObject.hpp"
 
 struct t_Ressource {
-    e_Ressource name;
+    eType name;
     gdl::Image image;
 };
 
@@ -24,7 +13,7 @@ public:
     IRessourceManager();
     virtual ~IRessourceManager();
 
-    gdl::Image getRessource(e_Ressource);
+    gdl::Image getRessource(eType);
 };
 
 #endif	/* IRessourceManager_H */

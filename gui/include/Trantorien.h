@@ -9,6 +9,7 @@
 #define	TRANTORIEN_H
 
 #include "AObject.hpp"
+#include "IRessourceManager.h"
 
 class Trantorien : public AObject {
 private:

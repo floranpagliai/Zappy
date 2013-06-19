@@ -28,19 +28,29 @@
 #include <iomanip>
 
 #include "Vector3f.hpp"
-#include "IRessourceManager.h"
 
 #define BLOCK_SIZE 50
+
+enum eType {
+    GROUND,
+    TRUNK,
+    LEAF,
+    TRANTORIEN,
+    EGG
+};
 
 class AObject {
 protected:
     Vector3f position_;
     Vector3f rotation_;
+    eType type_;
+    int id_;
 
 public:
 
     AObject(void) : position_(0.0f, 0.0f, 0.0f), rotation_(0.0f, 0.0f, 0.0f) {
     }
+
     virtual ~AObject(void) {
     }
 
@@ -54,6 +64,14 @@ public:
 
     Vector3f getRotation(void) const {
         return (this->rotation_);
+    }
+
+    int getId(void) {
+        return (this->id_);
+    }
+
+    eType getType() {
+        return (this->type_);
     }
 };
 
