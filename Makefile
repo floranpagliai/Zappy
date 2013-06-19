@@ -4,10 +4,12 @@ DIR	=	client/src/
 
 SRC	=	$(DIR)main.cpp\
 		$(DIR)MyGame.cpp\
+		$(DIR)Network.cpp\
 		$(DIR)Camera.cpp\
 		$(DIR)Ground.cpp\
 		$(DIR)IRessourceManager.cpp\
-		$(DIR)Trantorien.cpp
+		$(DIR)Trantorien.cpp\
+		$(DIR)xfunc.c
 
 OBJ	=	$(SRC:.cpp=.o)
 

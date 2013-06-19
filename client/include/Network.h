@@ -1,6 +1,7 @@
 #ifndef NETWORK_H
 #define	NETWORK_H
 
+#include <iostream>
 #include	<stdlib.h>
 #include	<sys/types.h>
 #include	<sys/socket.h>
@@ -10,13 +11,7 @@
 #include	<netdb.h>
 #include	<netinet/in.h>
 #include	<arpa/inet.h>
-
-#include	"init.h"
-#include	"struct.h"
-#include	"error.h"
-#include	"init.h"
-#include	"struct.h"
-#include	"do_client.h"
+#include "error.h"
 
 #define	fldoff(name, field) \
 	((int)&(((struct name *)0)->field))
@@ -29,18 +24,36 @@
 #define	strbase(name, addr, field) \
 	((struct name *)((char *)(addr) - fldoff(name, field)))
 
+#define		BUF_MAX	1024
+
+typedef struct {
+    struct protoent *pe;
+    struct sockaddr_in sin;
+    int s;
+    int cs;
+    fd_set fd_r;
+    fd_set fd_w;
+    int pos;
+    char buf[BUF_MAX];
+    int buf_ok;
+} t_client;
+
 class Network {
 private:
     int port_;
     char *ip_;
-    t_client *client_;
+    t_client client_;
 
 public:
-    Network(int port, char *ip, t_client *client);
-    Network(const Network& orig);
+    Network();
     virtual ~Network();
 
-    void initClient();
+    void initClient(int port, char *ip);
+
+    void check_stdin();
+    int get_data();
+    int check_socket();
+    void do_client();
 };
 
 #endif	/* NETWORK_H */

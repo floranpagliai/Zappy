@@ -14,6 +14,7 @@ class MyGame : public gdl::Game {
 private:
     std::list<AObject*> objects_;
     Camera camera_;
+    Network network_;
     IRessourceManager manager_;
 
 public:
@@ -22,7 +23,7 @@ public:
     virtual void draw(void);
     virtual void unload(void);
 
-    void initNetwork(int port, char *ip, t_client *client);
+    void initNetwork(int, char *);
 };
 
 #endif

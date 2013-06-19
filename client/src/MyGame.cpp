@@ -41,6 +41,7 @@ void MyGame::initialize() {
 }
 
 void MyGame::update(void) {
+    this->network_.do_client();
     for (std::list<AObject*>::iterator it = this->objects_.begin(); it != this->objects_.end(); ++it) {
         (*it)->update(gameClock_, input_);
     }
@@ -83,6 +84,6 @@ void MyGame::unload(void) {
     this->objects_.clear();
 }
 
-void MyGame::initNetwork(int port, char *ip, t_client *client) {
-    Network net(port, ip, client);
+void MyGame::initNetwork(int port, char *ip) {
+    this->network_.initClient(port, ip);
 }
