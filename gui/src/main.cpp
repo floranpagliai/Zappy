@@ -1,8 +1,8 @@
 #include "MyGame.h"
 
-int main(int argc, char** argv) {
+int main(int ac, char** av) {
     MyGame game;
     game.run();
-    return 0;
+    return (EXIT_SUCCESS);
 }
 

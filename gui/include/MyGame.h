@@ -4,6 +4,7 @@
 #include "AObject.hpp"
 #include "Camera.h"
 #include "Ground.h"
+#include "Trantorien.h"
 
 #define WINDOW_HEIGHT 700
 #define WINDOW_WIDHT 1024

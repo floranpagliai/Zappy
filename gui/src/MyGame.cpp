@@ -6,12 +6,36 @@ void MyGame::initialize() {
     window_.setWidth(WINDOW_WIDHT);
     window_.create();
     camera_.initialize();
-    //this->manager_.initialize();
+
+
     for (int i = 0; i != 10; i++) {
         for (int x = 0; x != 10; x++) {
-            this->objects_.push_front(new Ground(i, x, this->manager_));
+            this->objects_.push_front(new Ground(i, x, &this->manager_));
         }
     }
+    int x = 0, y = 0, z = -1;
+    while (x <= 10) {
+        this->objects_.push_back(new Tree(x, y++, z, 0, &this->manager_));
+        this->objects_.push_back(new Tree(x, y++, z, 0, &this->manager_));
+        while (y != 5) {
+            this->objects_.push_back(new Tree(x - 1, y, z - 1, 1, &this->manager_));
+            this->objects_.push_back(new Tree(x, y, z - 1, 1, &this->manager_));
+            this->objects_.push_back(new Tree(x + 1, y, z - 1, 1, &this->manager_));
+
+            this->objects_.push_back(new Tree(x - 1, y, z, 1, &this->manager_));
+            this->objects_.push_back(new Tree(x, y, z, 1, &this->manager_));
+            this->objects_.push_back(new Tree(x + 1, y, z, 1, &this->manager_));
+
+            this->objects_.push_back(new Tree(x + 1, y, z + 1, 1, &this->manager_));
+            this->objects_.push_back(new Tree(x, y, z + 1, 1, &this->manager_));
+            this->objects_.push_back(new Tree(x - 1, y, z + 1, 1, &this->manager_));
+            y++;
+        }
+        x += 4;
+        y = 0;
+
+    }
+    this->objects_.push_back(new Trantorien(5, 5, &this->manager_));
     for (std::list<AObject*>::iterator it = this->objects_.begin(); it != this->objects_.end(); ++it)
         (*it)->initialize();
 }
@@ -23,7 +47,7 @@ void MyGame::update(void) {
     camera_.update(gameClock_, input_);
     if (input_.isKeyDown(gdl::Keys::Right) == true)
         camera_.setPosition(camera_.getPosition().x + 10.0f, camera_.getPosition().y, camera_.getPosition().z);
-    if (input_.isKeyDown(gdl::Keys::Left) == true && camera_.getPosition().x - 10.0f >= 0)
+    if (input_.isKeyDown(gdl::Keys::Left) == true && camera_.getPosition().x - 10.0f >= 1)
         camera_.setPosition(camera_.getPosition().x - 10.0f, camera_.getPosition().y, camera_.getPosition().z);
     if (input_.isKeyDown(gdl::Keys::Down) == true)
         camera_.setPosition(camera_.getPosition().x, camera_.getPosition().y, camera_.getPosition().z + 10.0f);
