@@ -11,6 +11,7 @@ Trantorien::Trantorien(int x, int z, IRessourceManager* manager) : manager_(mana
     this->position_.x = x * (BLOCK_SIZE * 2);
     this->position_.y = 1.0f;
     this->position_.z = z * (BLOCK_SIZE * 2);
+    this->type_ = TRANTORIEN;
     this->initialize();
 }
 
@@ -18,7 +19,7 @@ Trantorien::~Trantorien() {
 }
 
 void Trantorien::initialize(void) {
-    this->texture_ = manager_->getRessource(TRANTORIEN);
+    this->texture_ = this->manager_->getRessource(TRANTORIEN);
     //this->model_ = gdl::Model::load("client/assets/creeper.fbx");
 }
 

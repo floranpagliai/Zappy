@@ -3,6 +3,7 @@
 
 #include "AObject.hpp"
 #include "Camera.h"
+#include "IRessourceManager.h"
 #include "Map.h"
 #include "Network.h"
 
@@ -15,6 +16,8 @@ private:
     Camera camera_;
     IRessourceManager manager_;
     Network network_;
+    int mapSizeX_;
+    int mapSizeZ_;
 
 public:
     virtual void initialize(void);
