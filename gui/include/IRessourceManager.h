@@ -9,8 +9,8 @@
 
 enum e_Ressource {
     GROUND,
-    FEUILLE,
-    TREE,
+    TRUNK,
+    LEAF,
     TRANTORIEN
 };
 

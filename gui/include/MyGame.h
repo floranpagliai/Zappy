@@ -3,8 +3,8 @@
 
 #include "AObject.hpp"
 #include "Camera.h"
-#include "Ground.h"
-#include "Trantorien.h"
+#include "Map.h"
+#include "Network.h"
 
 #define WINDOW_HEIGHT 700
 #define WINDOW_WIDHT 1024
@@ -14,12 +14,15 @@ private:
     std::list<AObject*> objects_;
     Camera camera_;
     IRessourceManager manager_;
+    Network network_;
 
 public:
     virtual void initialize(void);
     virtual void update(void);
     virtual void draw(void);
     virtual void unload(void);
+
+    void connect(int, char *);
 };
 
 #endif

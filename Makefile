@@ -10,8 +10,10 @@ SRC_CLIENT  =	$(DIR_CLIENT)src/main.c\
 
 SRC_GUI	    =	$(DIR_GUI)src/main.cpp\
 		$(DIR_GUI)src/MyGame.cpp\
+		$(DIR_GUI)src/Network.cpp\
+		$(DIR_GUI)src/Map.cpp\
 		$(DIR_GUI)src/Camera.cpp\
-		$(DIR_GUI)src/Ground.cpp\
+		$(DIR_GUI)src/MapElement.cpp\
 		$(DIR_GUI)src/IRessourceManager.cpp\
 		$(DIR_GUI)src/Trantorien.cpp
 

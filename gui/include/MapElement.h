@@ -5,8 +5,8 @@
  * Created on 18 juin 2013, 00:07
  */
 
-#ifndef GROUND_H
-#define	GROUND_H
+#ifndef MAPELEMENT_H
+#define	MAPELEMENT_H
 
 #include "AObject.hpp"
 
@@ -39,5 +39,5 @@ public:
     void draw(void);
 };
 
-#endif	/* MAP_H */
+#endif	/* MAPELEMENT_H */
 

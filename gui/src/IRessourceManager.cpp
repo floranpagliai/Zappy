@@ -6,10 +6,10 @@ t_Ressource ressources[4] = {
 
     },
     {
-        FEUILLE, gdl::Image::load("gui/assets/feuille.png")
+        TRUNK, gdl::Image::load("gui/assets/tree.png")
     },
     {
-        TREE, gdl::Image::load("gui/assets/tree.png")
+        LEAF, gdl::Image::load("gui/assets/feuille.png")
     },
     {
         TRANTORIEN, gdl::Image::load("gui/assets/boy.png")

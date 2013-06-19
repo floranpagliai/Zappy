@@ -1,4 +1,4 @@
-#include "Ground.h"
+#include "MapElement.h"
 
 Ground::Ground(int maxX, int maxZ, IRessourceManager* manager) : manager_(manager) {
     this->position_.x = maxX * (BLOCK_SIZE * 2);
@@ -51,9 +51,9 @@ Tree::~Tree() {
 
 void Tree::initialize(void) {
     if (this->type_ == 1)
-        this->texture_ = manager_->getRessource(FEUILLE);
+        this->texture_ = manager_->getRessource(LEAF);
     else
-        this->texture_ = manager_->getRessource(TREE);
+        this->texture_ = manager_->getRessource(TRUNK);
 }
 
 void Tree::update(gdl::GameClock const & gameClock, gdl::Input & input) {
