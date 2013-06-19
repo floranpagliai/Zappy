@@ -2,7 +2,6 @@
 #define MYGAME_H
 
 #include "AObject.hpp"
-#include "Network.h"
 #include "Camera.h"
 #include "Ground.h"
 #include "Trantorien.h"
@@ -14,7 +13,6 @@ class MyGame : public gdl::Game {
 private:
     std::list<AObject*> objects_;
     Camera camera_;
-    Network network_;
     IRessourceManager manager_;
 
 public:
@@ -22,8 +20,6 @@ public:
     virtual void update(void);
     virtual void draw(void);
     virtual void unload(void);
-
-    void initNetwork(int, char *);
 };
 
 #endif
