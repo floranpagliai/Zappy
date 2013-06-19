@@ -8,12 +8,14 @@
 #include "Image.hpp"
 
 enum e_Ressource {
-    GROUND
+    GROUND,
+    FEUILLE,
+    TREE,
+    TRANTORIEN
 };
 
 struct t_Ressource {
     e_Ressource name;
-    std::string path;
     gdl::Image image;
 };
 
@@ -21,8 +23,6 @@ class IRessourceManager {
 public:
     IRessourceManager();
     virtual ~IRessourceManager();
-
-    //void initialize(void);
 
     gdl::Image getRessource(e_Ressource);
 };

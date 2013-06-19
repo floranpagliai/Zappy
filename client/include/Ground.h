@@ -10,17 +10,29 @@
 
 #include "AObject.hpp"
 
-#define BLOCK_SIZE 50
-
 class Ground : public AObject {
 private:
-    gdl::Image texture_;
-    gdl::Model model_;
     IRessourceManager *manager_;
+    gdl::Image texture_;
 
 public:
     Ground(int, int, IRessourceManager *);
     virtual ~Ground();
+
+    void initialize(void);
+    void update(gdl::GameClock const &, gdl::Input &);
+    void draw(void);
+};
+
+class Tree : public AObject {
+private:
+    IRessourceManager *manager_;
+    gdl::Image texture_;
+    int type_;
+
+public:
+    Tree(int, int, int, int, IRessourceManager *);
+    virtual ~Tree();
 
     void initialize(void);
     void update(gdl::GameClock const &, gdl::Input &);

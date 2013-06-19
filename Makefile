@@ -7,6 +7,7 @@ SRC	=	$(DIR)main.cpp\
 		$(DIR)Camera.cpp\
 		$(DIR)Ground.cpp\
 		$(DIR)IRessourceManager.cpp\
+		$(DIR)Trantorien.cpp
 
 OBJ	=	$(SRC:.cpp=.o)
 

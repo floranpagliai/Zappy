@@ -11,7 +11,7 @@ void Camera::initialize(void) {
     glLoadIdentity();
     gluPerspective(70.0f, 800.0f / 600.0f, 1.0f, 50000.0f);
     gluLookAt(position_.x, position_.y, position_.z,
-            position_.x, 0.0f, position_.z - 20,
+            position_.x, 0.0f, position_.z - 300,
             0.0f, 1.0f, 0.0f);
 
     ////////////////////////////////
