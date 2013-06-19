@@ -47,13 +47,15 @@ void Trantorien::draw(void) {
 
     glEnd();
     glPopMatrix();
-//    glMatrixMode(GL_MODELVIEW);
-//    glPushMatrix();
-//
-//    glTranslatef(this->position_.x, this->position_.y, this->position_.z);
-//    glRotatef(this->rotation_.y, 0.0f, 1.0f, 0.0f);
-//
-//    this->model_.draw();
-//    glPopMatrix();
+
+
+    //    glMatrixMode(GL_MODELVIEW);
+    //    glPushMatrix();
+    //
+    //    glTranslatef(this->position_.x, this->position_.y, this->position_.z);
+    //    glRotatef(this->rotation_.y, 0.0f, 1.0f, 0.0f);
+    //
+    //    this->model_.draw();
+    //    glPopMatrix();
 
 }

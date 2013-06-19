@@ -2,6 +2,7 @@
 #define MYGAME_H
 
 #include "AObject.hpp"
+#include "Network.h"
 #include "Camera.h"
 #include "Ground.h"
 #include "Trantorien.h"
@@ -20,6 +21,8 @@ public:
     virtual void update(void);
     virtual void draw(void);
     virtual void unload(void);
+
+    void initNetwork(int port, char *ip, t_client *client);
 };
 
 #endif

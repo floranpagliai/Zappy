@@ -82,3 +82,7 @@ void MyGame::unload(void) {
         delete (*it);
     this->objects_.clear();
 }
+
+void MyGame::initNetwork(int port, char *ip, t_client *client) {
+    Network net(port, ip, client);
+}
