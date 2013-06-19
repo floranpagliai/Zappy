@@ -1,32 +1,46 @@
-NAME_GUI=	zappy_gui
+NAME_CLIENT =	zappy_client
 
-DIR_GUI	=	gui/
+NAME_GUI    =	zappy_gui
 
-SRC_GUI	=	$(DIR_GUI)src/main.cpp\
+DIR_CLIENT  =	client/
+
+DIR_GUI	    =	gui/
+
+SRC_CLIENT  =	$(DIR_CLIENT)src/main.c\
+
+SRC_GUI	    =	$(DIR_GUI)src/main.cpp\
 		$(DIR_GUI)src/MyGame.cpp\
 		$(DIR_GUI)src/Camera.cpp\
 		$(DIR_GUI)src/Ground.cpp\
 		$(DIR_GUI)src/IRessourceManager.cpp\
 		$(DIR_GUI)src/Trantorien.cpp
 
-OBJ_GUI	=	$(SRC_GUI:.cpp=.o)
+OBJ_CLIENT  =	$(SRC_CLIENT:.c=.o)
 
-CC	=	g++
+OBJ_GUI	    =	$(SRC_GUI:.cpp=.o)
 
-INCLUDES_GUI=	-I./$(DIR_GUI)include -I./$(DIR_GUI)lib/include
+CC	    =	g++
 
-LDFLAGS_GUI=	-L./$(DIR_GUI)lib -Wl,--rpath=./$(DIR_GUI)lib -lgdl_gl -lGL -lGLU
+INCLUDE_CLIENT= -I./$(DIR_CLIENT)include
 
-CFLAGS	=	-Wall -Werror
+INCLUDE_GUI=	-I./$(DIR_GUI)include -I./$(DIR_GUI)lib/include
+
+LDFLAGS_GUI =	-L./$(DIR_GUI)lib -Wl,--rpath=./$(DIR_GUI)lib -lgdl_gl -lGL -lGLU
+
+CFLAGS	    =	-Wall -Werror
 
 $(NAME_GUI):	$(OBJ_GUI)
 		$(CC) -o $(NAME_GUI) $(OBJ_GUI) $(LDFLAGS_GUI)
 		make clean
 
-all:		$(NAME_GUI)
+$(NAME_CLIENT):	$(OBJ_CLIENT)
+		$(CC) -o $(NAME_CLIENT) $(OBJ_CLIENT) $(INCLUDE_CLIENT) $(CFLAGS)
+		make clean
+
+all:		$(NAME_GUI) $(NAME_CLIENT)
 
 clean:
-		rm -R -f $(DIR_GUI)*.o
+		rm -R -f *.o
 		rm -R -f *~
 		rm -R -f *#
 
@@ -36,4 +50,4 @@ fclean:		clean
 re:		fclean all
 
 .cpp.o	:
-		$(CC) $(CFLAGS) $(INCLUDES_GUI) -c $< -o $@
+		$(CC) $(CFLAGS) $(INCLUDE_GUI) -c $< -o $@
