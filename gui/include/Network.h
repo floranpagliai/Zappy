@@ -2,15 +2,15 @@
 #define	NETWORK_H
 
 #include <iostream>
-#include	<stdlib.h>
-#include	<sys/types.h>
-#include	<sys/socket.h>
-#include	<unistd.h>
-#include	<string.h>
-#include	<stdio.h>
-#include	<netdb.h>
-#include	<netinet/in.h>
-#include	<arpa/inet.h>
+#include <stdlib.h>
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <unistd.h>
+#include <string.h>
+#include <stdio.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <arpa/inet.h>
 #include "error.h"
 
 #define	fldoff(name, field) \

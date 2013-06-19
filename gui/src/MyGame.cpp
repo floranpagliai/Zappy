@@ -7,40 +7,14 @@ void MyGame::initialize() {
     window_.create();
     camera_.initialize();
 
-
-    for (int i = 0; i != 10; i++) {
-        for (int x = 0; x != 10; x++) {
-            this->objects_.push_front(new Ground(i, x, &this->manager_));
-        }
-    }
-    int x = 0, y = 0, z = -1;
-    while (x <= 10) {
-        this->objects_.push_back(new Tree(x, y++, z, 0, &this->manager_));
-        this->objects_.push_back(new Tree(x, y++, z, 0, &this->manager_));
-        while (y != 5) {
-            this->objects_.push_back(new Tree(x - 1, y, z - 1, 1, &this->manager_));
-            this->objects_.push_back(new Tree(x, y, z - 1, 1, &this->manager_));
-            this->objects_.push_back(new Tree(x + 1, y, z - 1, 1, &this->manager_));
-
-            this->objects_.push_back(new Tree(x - 1, y, z, 1, &this->manager_));
-            this->objects_.push_back(new Tree(x, y, z, 1, &this->manager_));
-            this->objects_.push_back(new Tree(x + 1, y, z, 1, &this->manager_));
-
-            this->objects_.push_back(new Tree(x + 1, y, z + 1, 1, &this->manager_));
-            this->objects_.push_back(new Tree(x, y, z + 1, 1, &this->manager_));
-            this->objects_.push_back(new Tree(x - 1, y, z + 1, 1, &this->manager_));
-            y++;
-        }
-        x += 4;
-        y = 0;
-
-    }
+    Map map(20, 20, &this->objects_, &this->manager_);
     this->objects_.push_back(new Trantorien(5, 5, &this->manager_));
     for (std::list<AObject*>::iterator it = this->objects_.begin(); it != this->objects_.end(); ++it)
         (*it)->initialize();
 }
 
 void MyGame::update(void) {
+    //this->network_.do_client();
     for (std::list<AObject*>::iterator it = this->objects_.begin(); it != this->objects_.end(); ++it) {
         (*it)->update(gameClock_, input_);
     }
@@ -81,4 +55,9 @@ void MyGame::unload(void) {
     for (std::list<AObject *>::iterator it = this->objects_.begin(); it != this->objects_.end(); it++)
         delete (*it);
     this->objects_.clear();
+}
+
+void MyGame::connect(int port, char *hote) {
+    this->network_.initClient(port, hote);
+
 }

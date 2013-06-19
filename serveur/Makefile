@@ -8,7 +8,7 @@
 ## Last update Thu Jun 20 17:57:14 2013 laurent loukopoulos
 ##
 
-SERVER		= ./server_srcs/serveur
+SERVER		= serveur
 
 
 SERVER_SRCS	= ./server_srcs/main.c			\
