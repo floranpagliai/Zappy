@@ -7,21 +7,14 @@ void MyGame::initialize() {
     window_.create();
     camera_.initialize();
 
-    this->mapSizeX_ = 20;
-    this->mapSizeZ_ = 20;
-    Map map(this->mapSizeX_, this->mapSizeZ_, &this->objects_, &this->manager_);
     this->objects_.push_back(new Trantorien(5, 5, &this->manager_));
     for (std::list<AObject*>::iterator it = this->objects_.begin(); it != this->objects_.end(); ++it)
         (*it)->initialize();
 }
 
 void MyGame::update(void) {
-    //this->network_.do_client();
     for (std::list<AObject*>::iterator it = this->objects_.begin(); it != this->objects_.end(); ++it) {
         (*it)->update(gameClock_, input_);
-        if ((*it)->getType() == TRANTORIEN && (*it)->getPosition().x == 5 * BLOCK_SIZE * 2) {
-            //(*it)->setPosition((*it)->getPosition().x + BLOCK_SIZE * 2, (*it)->getPosition().y, (*it)->getPosition().z);
-        }
     }
     camera_.update(gameClock_, input_);
     if (input_.isKeyDown(gdl::Keys::Right) == true && camera_.getPosition().x - 10.0f <= (this->mapSizeX_ * BLOCK_SIZE * 2 - BLOCK_SIZE * 2))
@@ -62,7 +55,8 @@ void MyGame::unload(void) {
     this->objects_.clear();
 }
 
-void MyGame::connect(int port, char *hote) {
-    //this->network_.initClient(port, hote);
-
+void MyGame::generateMap(int x, int z) {
+    this->mapSizeX_ = x;
+    this->mapSizeZ_ = z;
+    Map map(this->mapSizeX_, this->mapSizeZ_, &this->objects_, &this->manager_);
 }

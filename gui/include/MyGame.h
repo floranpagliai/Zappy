@@ -5,7 +5,6 @@
 #include "Camera.h"
 #include "IRessourceManager.h"
 #include "Map.h"
-#include "Network.h"
 
 #define WINDOW_HEIGHT 700
 #define WINDOW_WIDHT 1024
@@ -24,7 +23,7 @@ public:
     virtual void draw(void);
     virtual void unload(void);
 
-    void connect(int, char *);
+    void generateMap(int, int);
 };
 
 #endif

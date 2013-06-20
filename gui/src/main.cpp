@@ -1,19 +1,6 @@
 #include "MyGame.h"
+#include "Network.h"
 
-//int main(int ac, char** av) {
-//    MyGame game;
-//    Network network;
-//    if (ac == 3) {
-//        network.initClient(atoi(av[1]), av[2]);
-//        network.do_client();
-//
-//        //game.connect(atoi(av[1]), av[2]);
-//
-//        //game.run();
-//    } else
-//        std::cout << "[USAGE] : (port) (hote)" << std::endl;
-//    return (EXIT_SUCCESS);
-//}
 Network network;
 MyGame game;
 
@@ -32,13 +19,15 @@ static void *task_b(void *p_data) {
 int main(int ac, char** av) {
     pthread_t ta;
     pthread_t tb;
+    if (ac == 3) {
+        network.initClient(atoi(av[1]), av[2], &game);
+        pthread_create(&ta, NULL, task_a, NULL);
+        pthread_create(&tb, NULL, task_b, NULL);
 
-    network.initClient(atoi(av[1]), av[2]);
-    pthread_create(&ta, NULL, task_a, NULL);
-    pthread_create(&tb, NULL, task_b, NULL);
-
-    pthread_join(ta, NULL);
-    pthread_join(tb, NULL);
+        pthread_join(ta, NULL);
+        pthread_join(tb, NULL);
+    } else
+        std::cout << "[USAGE] : (port) (hote)" << std::endl;
 
     return 0;
 }

@@ -2,7 +2,7 @@
 
 Ground::Ground(int maxX, int maxZ, IRessourceManager* manager) : manager_(manager) {
     this->position_.x = maxX * (BLOCK_SIZE * 2);
-    this->position_.y = -(BLOCK_SIZE * 2);
+    this->position_.y = 0.0f;
     this->position_.z = maxZ * (BLOCK_SIZE * 2);
     this->type_ = GROUND;
     this->initialize();

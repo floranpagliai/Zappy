@@ -15,7 +15,8 @@ SRC_GUI	    =	$(DIR_GUI)src/main.cpp\
 		$(DIR_GUI)src/Camera.cpp\
 		$(DIR_GUI)src/MapElement.cpp\
 		$(DIR_GUI)src/IRessourceManager.cpp\
-		$(DIR_GUI)src/Trantorien.cpp
+		$(DIR_GUI)src/Trantorien.cpp\
+		$(DIR_GUI)src/Parseur.cpp
 
 OBJ_CLIENT  =	$(SRC_CLIENT:.c=.o)
 
