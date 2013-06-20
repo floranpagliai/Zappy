@@ -12,6 +12,8 @@
 #include <netinet/in.h>
 #include <arpa/inet.h>
 #include "error.h"
+#include "MyGame.h"
+#include "Parseur.h"
 
 #define	fldoff(name, field) \
 	((int)&(((struct name *)0)->field))
@@ -40,6 +42,8 @@ typedef struct {
 
 class Network {
 private:
+    MyGame *game_;
+    Parseur parseur_;
     int port_;
     char *ip_;
     t_client client_;
@@ -48,12 +52,13 @@ public:
     Network();
     virtual ~Network();
 
-    void initClient(int port, char *ip);
+    void initClient(int port, char *ip, MyGame *);
 
-    void check_stdin();
-    int get_data();
+    int getData();
     int check_socket();
     void do_client();
+
+    void sendData(char *);
 };
 
 #endif	/* NETWORK_H */
