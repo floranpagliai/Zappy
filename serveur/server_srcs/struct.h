@@ -5,13 +5,21 @@
 ** Login   <loukop_l@epitech.net>
 ** 
 ** Started on  Sun May 26 00:43:21 2013 laurent loukopoulos
-** Last update Sun May 26 00:43:22 2013 laurent loukopoulos
+** Last update Thu Jun 20 17:15:54 2013 laurent loukopoulos
 */
 
 #ifndef			__STRUCT_H__
 # define		__STRUCT_H__
 
-# include		<sys/select.h>
+#include		<sys/select.h>
+#include		<unistd.h>
+#include		<stdio.h>
+#include		<string.h>
+#include		<stdlib.h>
+
+void			my_game(char *, int);
+char			*my_str(char *);
+int			my_count_last_str(char *);
 
 # define		BUF_MAX		512
 

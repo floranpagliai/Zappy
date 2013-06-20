@@ -5,7 +5,7 @@
 ** Login   <loukop_l@epitech.net>
 ** 
 ** Started on  Sun May 26 01:03:13 2013 laurent loukopoulos
-** Last update Tue Jun 18 17:15:37 2013 laurent loukopoulos
+** Last update Wed Jun 19 18:01:17 2013 laurent loukopoulos
 */
 
 #include	<stdio.h>
@@ -57,7 +57,7 @@ t_client *	do_client_read(t_client *c, t_server *server)
       c->read_end = (c->read_end + i) % BUF_MAX;
     }
   my_send_all(server->clients, c);
-  write(c->fd, "hello\n", 7);
+  my_game(c->buf_read, c->fd);
   return (c);
 }
 
