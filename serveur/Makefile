@@ -5,7 +5,7 @@
 ## Login   <pojer_s@epitech.net>
 ##
 ## Started on  Sun Apr 24 22:48:44 2011 steven pojer
-## Last update Sun May 26 01:39:09 2013 laurent loukopoulos
+## Last update Thu Jun 20 17:57:14 2013 laurent loukopoulos
 ##
 
 SERVER		= ./server_srcs/serveur
@@ -18,7 +18,8 @@ SERVER_SRCS	= ./server_srcs/main.c			\
 		  ./server_srcs/init_server.c		\
 		  ./server_srcs/my_relay.c		\
 		  ./server_srcs/server_loop.c		\
-		  ./server_srcs/my_write.c
+		  ./server_srcs/my_write.c		\
+		  ./server_srcs/my_game.c
 
 COMMON_SRCS	= ./common_srcs/xfunc_file.c
 
