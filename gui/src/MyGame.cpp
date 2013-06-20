@@ -20,8 +20,7 @@ void MyGame::update(void) {
     for (std::list<AObject*>::iterator it = this->objects_.begin(); it != this->objects_.end(); ++it) {
         (*it)->update(gameClock_, input_);
         if ((*it)->getType() == TRANTORIEN && (*it)->getPosition().x == 5 * BLOCK_SIZE * 2) {
-            std::cout << (*it)->getPosition().x << std::endl;
-            std::cout << 5 * BLOCK_SIZE * 2 << std::endl;
+            //(*it)->setPosition((*it)->getPosition().x + BLOCK_SIZE * 2, (*it)->getPosition().y, (*it)->getPosition().z);
         }
     }
     camera_.update(gameClock_, input_);
@@ -64,6 +63,6 @@ void MyGame::unload(void) {
 }
 
 void MyGame::connect(int port, char *hote) {
-    this->network_.initClient(port, hote);
+    //this->network_.initClient(port, hote);
 
 }

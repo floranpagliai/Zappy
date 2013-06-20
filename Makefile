@@ -27,7 +27,7 @@ INCLUDE_CLIENT= -I./$(DIR_CLIENT)include
 
 INCLUDE_GUI=	-I./$(DIR_GUI)include -I./$(DIR_GUI)lib/include
 
-LDFLAGS_GUI =	-L./$(DIR_GUI)lib -Wl,--rpath=./$(DIR_GUI)lib -lgdl_gl -lGL -lGLU
+LDFLAGS_GUI =	-L./$(DIR_GUI)lib -Wl,--rpath=./$(DIR_GUI)lib -lgdl_gl -lGL -lGLU -lpthread
 
 CFLAGS	    =	-Wall -Werror
 
@@ -39,10 +39,10 @@ $(NAME_CLIENT):	$(OBJ_CLIENT)
 		$(CC) -o $(NAME_CLIENT) $(OBJ_CLIENT) $(INCLUDE_CLIENT) $(CFLAGS)
 		make clean
 
-all:		$(NAME_GUI) $(NAME_CLIENT)
+all:		$(NAME_GUI)
 
 clean:
-		rm -R -f *.o
+		rm -f $(OBJ_CLIENT)
 		rm -R -f *~
 		rm -R -f *#
 

@@ -26,6 +26,8 @@
 #include <fstream>
 #include <sstream>
 #include <iomanip>
+#include <pthread.h>
+#include <stdio.h>
 
 #include "Vector3f.hpp"
 
@@ -64,6 +66,12 @@ public:
 
     Vector3f getRotation(void) const {
         return (this->rotation_);
+    }
+
+    void setPosition(float oldx, float oldy, float oldz) {
+        this->position_.x = oldx;
+        this->position_.y = oldy;
+        this->position_.z = oldz;
     }
 
     int getId(void) {
