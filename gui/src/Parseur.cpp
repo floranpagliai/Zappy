@@ -9,19 +9,19 @@
 
 t_Funcs funcs[5] = {
     {
-        (char*)"msz", Parseur::msz
+        (char*)"msz"
     },
     {
-        (char*)"bct", Parseur::msz
+        (char*)"bct"
     },
     {
-        (char*)"tna", Parseur::msz
+        (char*)"tna"
     },
     {
-        (char*)"pnw", Parseur::msz
+        (char*)"pnw"
     },
     {
-        (char*)"ppo", Parseur::msz
+        (char*)"ppo"
     }
 };
 

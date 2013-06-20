@@ -12,11 +12,8 @@
 
 #include "MyGame.h"
 
-typedef void(*Funcs)(void);
-
 struct t_Funcs {
     char *cmd;
-    Funcs ptr;
 };
 
 class Parseur {
