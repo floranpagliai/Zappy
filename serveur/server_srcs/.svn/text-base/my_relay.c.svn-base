@@ -5,13 +5,12 @@
 ** Login   <loukop_l@epitech.net>
 ** 
 ** Started on  Sun May 26 01:01:13 2013 laurent loukopoulos
-** Last update Tue Jun 18 17:09:03 2013 laurent loukopoulos
+** Last update Sun May 26 03:11:43 2013 laurent loukopoulos
 */
 
 #include	<stdio.h>
 #include	"my_irc.h"
 #include	"struct.h"
-#include	<string.h>
 
 void            my_strrelay(t_client *c1, t_client *c2)
 {

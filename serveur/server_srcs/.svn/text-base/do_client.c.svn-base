@@ -5,7 +5,7 @@
 ** Login   <loukop_l@epitech.net>
 ** 
 ** Started on  Sun May 26 01:03:13 2013 laurent loukopoulos
-** Last update Tue Jun 18 17:15:37 2013 laurent loukopoulos
+** Last update Sun May 26 03:36:26 2013 laurent loukopoulos
 */
 
 #include	<stdio.h>
@@ -19,7 +19,7 @@ t_client *	del_client(t_client *client, t_server * server)
 {
   t_client	*c;
 
-  printf("[ZAPPY] Client #%d disconnected.\n", client->fd - 3);
+  printf("[MY_IRC] Client #%d disconnected.\n", client->fd);
   if (client == server->clients)
     {
       server->clients = client->next;
@@ -47,6 +47,7 @@ t_client *	do_client_read(t_client *c, t_server *server)
   else
     i = xread(c->fd, &(c->buf_read[c->read_start]),
 	      BUF_MAX - c->read_start);
+
   if (i <= 0)
     return (del_client(c, server));
   else
@@ -57,21 +58,20 @@ t_client *	do_client_read(t_client *c, t_server *server)
       c->read_end = (c->read_end + i) % BUF_MAX;
     }
   my_send_all(server->clients, c);
-  write(c->fd, "hello\n", 7);
   return (c);
 }
 
-void		do_client_write(t_client *c)
+void		do_client_write(t_client * c)
 {
   if (c->write_start < c->write_end)
-    write(c->fd, &(c->buf_write[c->write_start]),
-	  c->write_end - c->write_start);
+    my_write(c->fd, &(c->buf_write[c->write_start]),
+	     c->write_end - c->write_start);
   else
     {
-      write(c->fd, &(c->buf_write[c->write_start]),
-	    BUF_MAX - c->write_start);
-      write(c->fd, c->buf_write,
-	    c->write_end);
+      my_write(c->fd, &(c->buf_write[c->write_start]),
+	       BUF_MAX - c->write_start);
+      my_write(c->fd, c->buf_write,
+	       c->write_end);
     }
   c->write_start = c->write_end;
 }
