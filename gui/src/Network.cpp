@@ -80,15 +80,17 @@ void Network::do_client() {
             (struct sockaddr *) &(this->client_.sin),
             sizeof (struct sockaddr_in))) == -1)
         error(ERROR_CONNECT);
-    FD_ZERO(&(this->client_.fd_r));
-    FD_ZERO(&(this->client_.fd_w));
-    FD_SET(0, &(this->client_.fd_r));
-    FD_SET(this->client_.s, &(this->client_.fd_r));
-    if (this->client_.buf_ok)
-        FD_SET(this->client_.s, &(this->client_.fd_w));
-    if ((ok = select(this->client_.s + 1, &(this->client_.fd_r),
-            &(this->client_.fd_w), NULL, NULL)) != -1) {
-        check_stdin();
-        ok = check_socket();
+    while (ok != -1) {
+        FD_ZERO(&(this->client_.fd_r));
+        FD_ZERO(&(this->client_.fd_w));
+        FD_SET(0, &(this->client_.fd_r));
+        FD_SET(this->client_.s, &(this->client_.fd_r));
+        if (this->client_.buf_ok)
+            FD_SET(this->client_.s, &(this->client_.fd_w));
+        if ((ok = select(this->client_.s + 1, &(this->client_.fd_r),
+                &(this->client_.fd_w), NULL, NULL)) != -1) {
+            check_stdin();
+            ok = check_socket();
+        }
     }
 }

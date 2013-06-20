@@ -15,7 +15,6 @@ private:
     std::list<AObject*> objects_;
     Camera camera_;
     IRessourceManager manager_;
-    Network network_;
     int mapSizeX_;
     int mapSizeZ_;
 
