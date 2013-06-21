@@ -5,7 +5,7 @@
 ** Login   <loukop_l@epitech.net>
 ** 
 ** Started on  Wed Jun 19 18:00:01 2013 laurent loukopoulos
-** Last update Thu Jun 20 17:49:12 2013 laurent loukopoulos
+** Last update Fri Jun 21 16:50:38 2013 laurent loukopoulos
 */
 
 #include	"struct.h"
@@ -14,9 +14,10 @@ void		my_game(char *buf_in, int out)
 {
   char		*res;
 
-  write(out, "bonjour client graphique\n", strlen("bonjour client graphique\n"));
+  printf("\nbegin\n%send\n", buf_in);
+  write(out, "bonjour client\n", strlen("bonjour client\n"));
   res = my_str(buf_in);
-  printf("%s\n", res);
+  printf("\n%s\n", res);
 }
 
 char		*my_str(char *buf_in)

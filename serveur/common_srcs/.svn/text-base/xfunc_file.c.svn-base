@@ -5,12 +5,13 @@
 ** Login   <loukop_l@epitech.net>
 ** 
 ** Started on  Sun May 26 01:06:10 2013 laurent loukopoulos
-** Last update Thu Jun  6 13:54:00 2013 laurent loukopoulos
+** Last update Tue Jun 18 17:20:13 2013 laurent loukopoulos
 */
 
 #include	<unistd.h>
 #include	"xfunc.h"
 #include	"error.h"
+#include	<string.h>
 
 ssize_t		xwrite(int fd, const void *buf, size_t count)
 {
@@ -27,7 +28,6 @@ ssize_t		xread(int fd, void *buf, size_t count)
 
   if ((nb_read = read(fd, buf, count)) == -1)
     error(ERROR_READ);
-  write(0, buf, 512);
   return (nb_read);
 }
 
