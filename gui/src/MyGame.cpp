@@ -73,10 +73,20 @@ void MyGame::movePlayer(int id, int x, int z, eDir dir) {
 }
 
 void MyGame::setPlayerLvl(int id, int lvl) {
-
     for (std::list<AObject*>::iterator it = this->objects_.begin(); it != this->objects_.end(); ++it) {
         if ((*it)->getType() == TRANTORIEN && (*it)->getId() == id) {
             (*it)->setLvl(lvl);
+            break;
+        }
+    }
+}
+
+void MyGame::expulsePlayer(int id) {
+    for (std::list<AObject*>::iterator it = this->objects_.begin(); it != this->objects_.end(); ++it) {
+        if ((*it)->getType() == TRANTORIEN && (*it)->getId() == id) {
+            delete (*it);
+            this->objects_.erase(it);
+            break;
         }
     }
 }

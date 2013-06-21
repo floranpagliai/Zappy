@@ -28,6 +28,7 @@ public:
     void invocatePlayer(int, int, int, eDir, int);
     void movePlayer(int, int, int, eDir);
     void setPlayerLvl(int, int);
+    void expulsePlayer(int);
 };
 
 #endif

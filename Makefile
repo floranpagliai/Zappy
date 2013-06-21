@@ -59,7 +59,7 @@ $(NAME_CLIENT):	$(OBJ_CLIENT)
 all:		$(NAME_GUI)
 
 clean:
-		rm -f $(OBJ_CLIENT)
+		rm -f $(OBJ_GUI)
 		rm -R -f *~
 		rm -R -f *#
 

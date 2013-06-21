@@ -114,9 +114,12 @@ namespace rfcFuncs {
     }
 
     void pin(MyGame* game, std::string cmd) {
+
     }
 
     void pex(MyGame* game, std::string cmd) {
+        int id = cmd.find(' ', 0);
+        game->expulsePlayer(atoi(cmd.substr(id + 1, id - (id + 1)).c_str()));
     }
 
     void pbc(MyGame* game, std::string cmd) {

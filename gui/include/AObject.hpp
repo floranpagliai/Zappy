@@ -90,7 +90,7 @@ public:
         return (this->type_);
     }
 
-    virtual void setLvl(int);
+    virtual void setLvl(int) {};
 };
 
 #endif	/* AOBJECT_HPP */

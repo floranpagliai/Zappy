@@ -18,20 +18,24 @@ void		my_game(char *buf_in, int out)
   res = my_str(buf_in);
   printf("%s\n", res);
   write(out, "msz 10 10\n", strlen("msz 10 10\n"));
-  res = my_str(buf_in);
+
   printf("%s\n", res);
   write(out, "bct 0 0 0 0 0 0 0\n", strlen("bct 0 0 0 0 0 0 0\n"));
-  res = my_str(buf_in);
+
   printf("%s\n", res);
   write(out, "pnw 1 1 1 1 1\n", strlen("pnw 1 1 1 1 1\n"));
-  res = my_str(buf_in);
+
   printf("%s\n", res);
   write(out, "ppo 1 1 1 1\n", strlen("ppo 1 1 1 1\n"));
-  res = my_str(buf_in);
+
   printf("%s\n", res);
-  write(out, "plv 1 2\n", strlen("ppo 1 1 1 1\n"));
-  res = my_str(buf_in);
+  write(out, "plv 1 2\n", strlen("plv 1 2\n"));
+
   printf("%s\n", res);
+  write(out, "pex 1\n", strlen("pex 1\n"));
+
+  printf("%s\n", res);
+
 }
 
 char		*my_str(char *buf_in)
