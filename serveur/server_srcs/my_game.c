@@ -23,7 +23,13 @@ void		my_game(char *buf_in, int out)
   write(out, "bct 0 0 0 0 0 0 0\n", strlen("bct 0 0 0 0 0 0 0\n"));
   res = my_str(buf_in);
   printf("%s\n", res);
+  write(out, "pnw 1 1 1 1 1\n", strlen("pnw 1 1 1 1 1\n"));
+  res = my_str(buf_in);
+  printf("%s\n", res);
   write(out, "ppo 1 1 1 1\n", strlen("ppo 1 1 1 1\n"));
+  res = my_str(buf_in);
+  printf("%s\n", res);
+  write(out, "plv 1 2\n", strlen("ppo 1 1 1 1\n"));
   res = my_str(buf_in);
   printf("%s\n", res);
 }

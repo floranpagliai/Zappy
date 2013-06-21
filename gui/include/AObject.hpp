@@ -35,11 +35,18 @@
 #define CHARACTER_SIZE 50
 
 enum eType {
-    GROUND,
+    GROUND = 0,
     TRUNK,
     LEAF,
     TRANTORIEN,
     EGG
+};
+
+enum eDir {
+    N = 1,
+    E,
+    S,
+    O
 };
 
 class AObject {
@@ -69,10 +76,10 @@ public:
         return (this->rotation_);
     }
 
-    void setPosition(float oldx, float oldy, float oldz) {
-        this->position_.x = oldx;
-        this->position_.y = oldy;
-        this->position_.z = oldz;
+    void setPosition(float newx, float newy, float newz) {
+        this->position_.x = newx;
+        this->position_.y = newy;
+        this->position_.z = newz;
     }
 
     int getId(void) {
@@ -82,6 +89,8 @@ public:
     eType getType() {
         return (this->type_);
     }
+
+    virtual void setLvl(int);
 };
 
 #endif	/* AOBJECT_HPP */

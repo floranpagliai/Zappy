@@ -16,13 +16,20 @@ private:
     gdl::Image texture_;
     gdl::Model model_;
     IRessourceManager *manager_;
+    eDir dir_;
+    int lvl_;
+
 public:
-    Trantorien(int, int, IRessourceManager *);
+    Trantorien(int, int, int, eDir, int, IRessourceManager *);
     virtual ~Trantorien(void);
 
     void initialize(void);
     void update(gdl::GameClock const &, gdl::Input &);
     void draw(void);
+
+    void setLvl(int);
+
+    int getLvl(void) const;
 };
 
 #endif	/* TRANTORIEN_H */

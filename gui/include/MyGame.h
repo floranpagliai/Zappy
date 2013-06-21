@@ -25,7 +25,9 @@ public:
     virtual void unload(void);
 
     void generateMap(int, int);
-    void invocatePlayer(int, int);
+    void invocatePlayer(int, int, int, eDir, int);
+    void movePlayer(int, int, int, eDir);
+    void setPlayerLvl(int, int);
 };
 
 #endif

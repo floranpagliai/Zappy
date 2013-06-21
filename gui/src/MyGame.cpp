@@ -57,6 +57,26 @@ void MyGame::unload(void) {
 void MyGame::generateMap(int x, int z) {
     this->map_ = Map(x, z, &this->objects_, &this->manager_);
 }
-void MyGame::invocatePlayer(int x, int z) {
-    this->objects_.push_back(new Trantorien(5, 5, &this->manager_));
+
+void MyGame::invocatePlayer(int id, int x, int z, eDir dir, int lvl) {
+    this->objects_.push_back(new Trantorien(id, x, z, dir, lvl, &this->manager_));
+}
+
+void MyGame::movePlayer(int id, int x, int z, eDir dir) {
+    (void) dir;
+    for (std::list<AObject*>::iterator it = this->objects_.begin(); it != this->objects_.end(); ++it) {
+        if ((*it)->getType() == TRANTORIEN && (*it)->getId() == id) {
+            (*it)->setPosition(x, (*it)->getPosition().y, z);
+
+        }
+    }
+}
+
+void MyGame::setPlayerLvl(int id, int lvl) {
+
+    for (std::list<AObject*>::iterator it = this->objects_.begin(); it != this->objects_.end(); ++it) {
+        if ((*it)->getType() == TRANTORIEN && (*it)->getId() == id) {
+            (*it)->setLvl(lvl);
+        }
+    }
 }

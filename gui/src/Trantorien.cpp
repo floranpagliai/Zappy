@@ -7,11 +7,14 @@
 
 #include "Trantorien.h"
 
-Trantorien::Trantorien(int x, int z, IRessourceManager* manager) : manager_(manager) {
+Trantorien::Trantorien(int id, int x, int z, eDir dir, int lvl, IRessourceManager* manager) : manager_(manager) {
     this->position_.x = x * (BLOCK_SIZE * 2);
     this->position_.y = 50.0f;
     this->position_.z = z * (BLOCK_SIZE * 2);
     this->type_ = TRANTORIEN;
+    this->id_ = id;
+    this->dir_ = dir;
+    this->lvl_ = lvl;
     this->initialize();
 }
 
@@ -46,4 +49,13 @@ void Trantorien::draw(void) {
 
     glEnd();
     glPopMatrix();
+}
+
+void Trantorien::setLvl(int lvl) {
+    if (lvl <= 8)
+        this->lvl_ = lvl;
+}
+
+int Trantorien::getLvl() const {
+    return (this->lvl_);
 }
