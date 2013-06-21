@@ -7,7 +7,32 @@
 
 #include "Map.h"
 
-Map::Map(int sizeX, int sizeZ, std::list<AObject*>* objects_, IRessourceManager* manager) : manager_(manager) {
+Map::Map() {
+}
+
+Map::Map(int sizeX, int sizeZ, std::list<AObject*> *objects, IRessourceManager *manager) : objects_(objects), manager_(manager) {
+    this->generateMap(sizeX, sizeZ);
+}
+
+Map &Map::operator=(const Map& old) {
+    this->manager_ = old.manager_;
+    this->sizeX_ = old.sizeX_;
+    this->sizeZ_ = old.sizeZ_;
+    return (*this);
+}
+
+Map::~Map() {
+}
+
+int Map::getSizeX() const {
+    return (this->sizeX_);
+}
+
+int Map::getSizeZ() const {
+    return (this->sizeZ_);
+}
+
+void Map::generateMap(int sizeX, int sizeZ) {
     this->sizeX_ = sizeX;
     this->sizeZ_ = sizeZ;
     for (int i = 0; i != sizeZ; i++) {
@@ -39,7 +64,3 @@ Map::Map(int sizeX, int sizeZ, std::list<AObject*>* objects_, IRessourceManager*
 
     }
 }
-
-Map::~Map() {
-}
-

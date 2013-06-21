@@ -12,14 +12,22 @@
 #include "Trantorien.h"
 
 class Map {
-public:
-    Map(int, int, std::list<AObject*> *, IRessourceManager*);
-    virtual ~Map();
-
-private:
+protected:
+    std::list<AObject*> *objects_;
     IRessourceManager *manager_;
     int sizeX_;
     int sizeZ_;
+
+public:
+    Map();
+    Map(int, int, std::list<AObject*> *, IRessourceManager*);
+    Map &operator=(const Map&);
+    virtual ~Map();
+
+    int getSizeX() const;
+    int getSizeZ() const;
+
+    void generateMap(int, int);
 };
 
 #endif	/* MAP_H */

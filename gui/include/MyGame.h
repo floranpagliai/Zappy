@@ -14,8 +14,9 @@ private:
     std::list<AObject*> objects_;
     Camera camera_;
     IRessourceManager manager_;
-    int mapSizeX_;
-    int mapSizeZ_;
+
+public:
+    Map map_;
 
 public:
     virtual void initialize(void);
@@ -24,6 +25,7 @@ public:
     virtual void unload(void);
 
     void generateMap(int, int);
+    void invocatePlayer(int, int);
 };
 
 #endif

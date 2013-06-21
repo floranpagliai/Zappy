@@ -49,7 +49,7 @@ bool Parseur::interpret(MyGame* game) {
 
 namespace rfcFuncs {
     void msz(MyGame* game, std::string cmd) {
-        game->generateMap(10, 10);
+        game->generateMap(20, 20);
     }
 
     void bct(MyGame* game, std::string cmd) {

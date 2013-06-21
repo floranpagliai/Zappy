@@ -16,11 +16,11 @@ void MyGame::update(void) {
         (*it)->update(gameClock_, input_);
     }
     camera_.update(gameClock_, input_);
-    if (input_.isKeyDown(gdl::Keys::Right) == true && camera_.getPosition().x - 10.0f <= (this->mapSizeX_ * BLOCK_SIZE * 2 - BLOCK_SIZE * 2))
+    if (input_.isKeyDown(gdl::Keys::Right) == true && camera_.getPosition().x - 10.0f <= (this->map_.getSizeZ() * BLOCK_SIZE * 2 - BLOCK_SIZE * 2))
         camera_.setPosition(camera_.getPosition().x + 10.0f, camera_.getPosition().y, camera_.getPosition().z);
     if (input_.isKeyDown(gdl::Keys::Left) == true && camera_.getPosition().x - 10.0f >= 1)
         camera_.setPosition(camera_.getPosition().x - 10.0f, camera_.getPosition().y, camera_.getPosition().z);
-    if (input_.isKeyDown(gdl::Keys::Down) == true && camera_.getPosition().z - 10.0f <= (this->mapSizeZ_ * BLOCK_SIZE * 2))
+    if (input_.isKeyDown(gdl::Keys::Down) == true && camera_.getPosition().z - 10.0f <= (this->map_.getSizeZ() * BLOCK_SIZE * 2))
         camera_.setPosition(camera_.getPosition().x, camera_.getPosition().y, camera_.getPosition().z + 10.0f);
     if (input_.isKeyDown(gdl::Keys::Up) == true && camera_.getPosition().z - 10.0f >= 1)
         camera_.setPosition(camera_.getPosition().x, camera_.getPosition().y, camera_.getPosition().z - 10.0f);
@@ -55,11 +55,8 @@ void MyGame::unload(void) {
 }
 
 void MyGame::generateMap(int x, int z) {
-    this->mapSizeX_ = x;
-    this->mapSizeZ_ = z;
-    Map map(this->mapSizeX_, this->mapSizeZ_, &this->objects_, &this->manager_);
+    this->map_ = Map(x, z, &this->objects_, &this->manager_);
 }
-
 void MyGame::invocatePlayer(int x, int z) {
     this->objects_.push_back(new Trantorien(5, 5, &this->manager_));
 }

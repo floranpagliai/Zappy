@@ -3,8 +3,6 @@
   <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
     <df name="Zappy" root=".">
       <df name="client">
-        <df name="dossier sans titre">
-        </df>
         <df name="include">
           <in>do_client.h</in>
           <in>error.h</in>
@@ -20,21 +18,6 @@
         </df>
       </df>
       <df name="gui">
-        <df name=".svn">
-          <df name="prop-base">
-            <in>client.svn-base</in>
-          </df>
-          <df name="text-base">
-            <in>client.svn-base</in>
-            <in>do_client.c.svn-base</in>
-            <in>do_client.h.svn-base</in>
-            <in>init.c.svn-base</in>
-            <in>init.h.svn-base</in>
-            <in>main.c.svn-base</in>
-            <in>struct.h.svn-base</in>
-          </df>
-          <in>entries</in>
-        </df>
         <df name="assets">
         </df>
         <df name="include">
@@ -45,6 +28,7 @@
           <in>MapElement.h</in>
           <in>MyGame.h</in>
           <in>Network.h</in>
+          <in>Parseur.h</in>
           <in>Trantorien.h</in>
           <in>Vector3f.hpp</in>
           <in>error.h</in>
@@ -77,6 +61,7 @@
           <in>MapElement.cpp</in>
           <in>MyGame.cpp</in>
           <in>Network.cpp</in>
+          <in>Parseur.cpp</in>
           <in>Trantorien.cpp</in>
           <in>main.cpp</in>
           <in>xfunc.c</in>
@@ -94,6 +79,7 @@
           <in>do_server.c</in>
           <in>init_server.c</in>
           <in>main.c</in>
+          <in>my_game.c</in>
           <in>my_irc.h</in>
           <in>my_relay.c</in>
           <in>my_write.c</in>
