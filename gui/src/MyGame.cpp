@@ -7,7 +7,6 @@ void MyGame::initialize() {
     window_.create();
     camera_.initialize();
 
-    this->objects_.push_back(new Trantorien(5, 5, &this->manager_));
     for (std::list<AObject*>::iterator it = this->objects_.begin(); it != this->objects_.end(); ++it)
         (*it)->initialize();
 }
@@ -59,4 +58,8 @@ void MyGame::generateMap(int x, int z) {
     this->mapSizeX_ = x;
     this->mapSizeZ_ = z;
     Map map(this->mapSizeX_, this->mapSizeZ_, &this->objects_, &this->manager_);
+}
+
+void MyGame::invocatePlayer(int x, int z) {
+    this->objects_.push_back(new Trantorien(5, 5, &this->manager_));
 }

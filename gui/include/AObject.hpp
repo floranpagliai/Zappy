@@ -32,6 +32,7 @@
 #include "Vector3f.hpp"
 
 #define BLOCK_SIZE 50
+#define CHARACTER_SIZE 50
 
 enum eType {
     GROUND,

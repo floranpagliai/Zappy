@@ -2,13 +2,13 @@
 
 t_Ressource ressources[4] = {
     {
-        GROUND, gdl::Image::load("gui/assets/ground2.png")
+        GROUND, gdl::Image::load("gui/assets/ground.png")
     },
     {
-        TRUNK, gdl::Image::load("gui/assets/tree.png")
+        TRUNK, gdl::Image::load("gui/assets/trunk.png")
     },
     {
-        LEAF, gdl::Image::load("gui/assets/feuille.png")
+        LEAF, gdl::Image::load("gui/assets/leaf.png")
     },
     {
         TRANTORIEN, gdl::Image::load("gui/assets/boy.png")
