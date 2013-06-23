@@ -25,14 +25,19 @@ void		my_game(char *buf_in, int out)
   printf("%s\n", res);
   write(out, "pnw 1 1 1 1 1\n", strlen("pnw 1 1 1 1 1\n"));
 
+    printf("%s\n", res);
+  write(out, "pnw 2 2 1 1 1\n", strlen("pnw 1 1 1 1 1\n"));
+
   printf("%s\n", res);
-  write(out, "ppo 1 1 1 1\n", strlen("ppo 1 1 1 1\n"));
+  write(out, "ppo 2 5 5 1\n", strlen("ppo 1 1 1 1\n"));
 
   printf("%s\n", res);
   write(out, "plv 1 2\n", strlen("plv 1 2\n"));
 
+/*
   printf("%s\n", res);
   write(out, "pex 1\n", strlen("pex 1\n"));
+*/
 
   printf("%s\n", res);
 

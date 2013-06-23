@@ -52,6 +52,7 @@ enum eDir {
 class AObject {
 protected:
     Vector3f position_;
+    Vector3f nextPosition_;
     Vector3f rotation_;
     eType type_;
     int id_;
@@ -80,6 +81,12 @@ public:
         this->position_.x = newx;
         this->position_.y = newy;
         this->position_.z = newz;
+    }
+
+    void setNextPosition(float newx, float newy, float newz) {
+        this->nextPosition_.x = newx;
+        this->nextPosition_.y = newy;
+        this->nextPosition_.z = newz;
     }
 
     int getId(void) {

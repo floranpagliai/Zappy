@@ -15,6 +15,7 @@ void MyGame::update(void) {
     for (std::list<AObject*>::iterator it = this->objects_.begin(); it != this->objects_.end(); ++it) {
         (*it)->update(gameClock_, input_);
     }
+    sleep(0.9);
     camera_.update(gameClock_, input_);
     if (input_.isKeyDown(gdl::Keys::Right) == true && camera_.getPosition().x - 10.0f <= (this->map_.getSizeZ() * BLOCK_SIZE * 2 - BLOCK_SIZE * 2))
         camera_.setPosition(camera_.getPosition().x + 10.0f, camera_.getPosition().y, camera_.getPosition().z);
@@ -59,15 +60,15 @@ void MyGame::generateMap(int x, int z) {
 }
 
 void MyGame::invocatePlayer(int id, int x, int z, eDir dir, int lvl) {
-    this->objects_.push_back(new Trantorien(id, x, z, dir, lvl, &this->manager_));
+    this->objects_.push_back(new Player(id, x, z, dir, lvl, &this->manager_));
 }
 
 void MyGame::movePlayer(int id, int x, int z, eDir dir) {
     (void) dir;
     for (std::list<AObject*>::iterator it = this->objects_.begin(); it != this->objects_.end(); ++it) {
         if ((*it)->getType() == TRANTORIEN && (*it)->getId() == id) {
-            (*it)->setPosition(x, (*it)->getPosition().y, z);
-
+            (*it)->setNextPosition(x * (BLOCK_SIZE * 2), (*it)->getPosition().y, z * (BLOCK_SIZE * 2));
+            break;
         }
     }
 }

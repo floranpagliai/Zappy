@@ -40,27 +40,27 @@ void Map::generateMap(int sizeX, int sizeZ) {
             objects_->push_front(new Ground(i, x, this->manager_));
         }
     }
-    int x = 2, y = 0, z = -1;
-    while (x < sizeX) {
-        objects_->push_back(new Tree(x, y++, z, TRUNK, this->manager_));
-        objects_->push_back(new Tree(x, y++, z, TRUNK, this->manager_));
-        objects_->push_back(new Tree(x, y, z, TRUNK, this->manager_));
-        while (y != 5) {
-            objects_->push_back(new Tree(x - 1, y, z - 1, LEAF, this->manager_));
-            objects_->push_back(new Tree(x, y, z - 1, LEAF, this->manager_));
-            objects_->push_back(new Tree(x + 1, y, z - 1, LEAF, this->manager_));
-
-            objects_->push_back(new Tree(x - 1, y, z, LEAF, this->manager_));
-            objects_->push_back(new Tree(x, y, z, LEAF, this->manager_));
-            objects_->push_back(new Tree(x + 1, y, z, LEAF, this->manager_));
-
-            objects_->push_back(new Tree(x + 1, y, z + 1, LEAF, this->manager_));
-            objects_->push_back(new Tree(x, y, z + 1, LEAF, this->manager_));
-            objects_->push_back(new Tree(x - 1, y, z + 1, LEAF, this->manager_));
-            y++;
-        }
-        x += 4;
-        y = 0;
-
-    }
+//    int x = 2, y = 0, z = -1;
+//    while (x < sizeX) {
+//        objects_->push_back(new Tree(x, y++, z, TRUNK, this->manager_));
+//        objects_->push_back(new Tree(x, y++, z, TRUNK, this->manager_));
+//        objects_->push_back(new Tree(x, y, z, TRUNK, this->manager_));
+//        while (y != 5) {
+//            objects_->push_back(new Tree(x - 1, y, z - 1, LEAF, this->manager_));
+//            objects_->push_back(new Tree(x, y, z - 1, LEAF, this->manager_));
+//            objects_->push_back(new Tree(x + 1, y, z - 1, LEAF, this->manager_));
+//
+//            objects_->push_back(new Tree(x - 1, y, z, LEAF, this->manager_));
+//            objects_->push_back(new Tree(x, y, z, LEAF, this->manager_));
+//            objects_->push_back(new Tree(x + 1, y, z, LEAF, this->manager_));
+//
+//            objects_->push_back(new Tree(x + 1, y, z + 1, LEAF, this->manager_));
+//            objects_->push_back(new Tree(x, y, z + 1, LEAF, this->manager_));
+//            objects_->push_back(new Tree(x - 1, y, z + 1, LEAF, this->manager_));
+//            y++;
+//        }
+//        x += 4;
+//        y = 0;
+//
+//    }
 }

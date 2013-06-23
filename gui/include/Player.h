@@ -1,17 +1,10 @@
-/*
- * File:   Trantorien.h
- * Author: floran
- *
- * Created on 19 juin 2013, 02:37
- */
-
-#ifndef TRANTORIEN_H
-#define	TRANTORIEN_H
+#ifndef PLAYER_H
+#define	PLAYER_H
 
 #include "AObject.hpp"
 #include "IRessourceManager.h"
 
-class Trantorien : public AObject {
+class Player : public AObject {
 private:
     gdl::Image texture_;
     gdl::Model model_;
@@ -20,8 +13,8 @@ private:
     int lvl_;
 
 public:
-    Trantorien(int, int, int, eDir, int, IRessourceManager *);
-    virtual ~Trantorien(void);
+    Player(int, int, int, eDir, int, IRessourceManager *);
+    virtual ~Player(void);
 
     void initialize(void);
     void update(gdl::GameClock const &, gdl::Input &);
@@ -32,5 +25,5 @@ public:
     int getLvl(void) const;
 };
 
-#endif	/* TRANTORIEN_H */
+#endif	/* Player_H */
 

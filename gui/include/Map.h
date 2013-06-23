@@ -9,7 +9,7 @@
 #define	MAP_H
 
 #include "MapElement.h"
-#include "Trantorien.h"
+#include "Player.h"
 
 class Map {
 protected:
