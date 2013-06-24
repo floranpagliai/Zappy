@@ -39,7 +39,18 @@ enum eType {
     TRUNK,
     LEAF,
     TRANTORIEN,
-    EGG
+    EGG,
+    RESSOURCES
+};
+
+enum eRessource {
+    FOOD,
+    LINEMATE,
+    DERAUMATRE,
+    SIBUR,
+    MENDIANE,
+    PHIRAS,
+    THYSTAME
 };
 
 enum eDir {
@@ -73,6 +84,10 @@ public:
         return (this->position_);
     }
 
+    Vector3f getNextPosition(void) const {
+        return (this->nextPosition_);
+    }
+
     Vector3f getRotation(void) const {
         return (this->rotation_);
     }
@@ -97,7 +112,17 @@ public:
         return (this->type_);
     }
 
-    virtual void setLvl(int) {};
+    virtual void setLvl(int) {
+    };
+
+    virtual void setRessources(int*) {
+    };
+
+    virtual void dropRessource(eRessource) {
+    };
+
+    virtual void getRessource(eRessource) {
+    };
 };
 
 #endif	/* AOBJECT_HPP */

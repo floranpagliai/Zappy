@@ -5,6 +5,7 @@
 #include "Camera.h"
 #include "IRessourceManager.h"
 #include "Map.h"
+#include "Ressources.h"
 
 #define WINDOW_HEIGHT 700
 #define WINDOW_WIDHT 1024
@@ -25,10 +26,14 @@ public:
     virtual void unload(void);
 
     void generateMap(int, int);
+
     void invocatePlayer(int, int, int, eDir, int);
     void movePlayer(int, int, int, eDir);
     void setPlayerLvl(int, int);
     void expulsePlayer(int);
+
+    void putRessources(int, int, int*);
+    void putRessource(int, eRessource);
 };
 
 #endif

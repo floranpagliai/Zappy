@@ -10,6 +10,7 @@
 
 #include "MapElement.h"
 #include "Player.h"
+#include "Ressources.h"
 
 class Map {
 protected:

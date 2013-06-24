@@ -2,7 +2,7 @@
 
 Player::Player(int id, int x, int z, eDir dir, int lvl, IRessourceManager* manager) : manager_(manager) {
     this->position_.x = x * (BLOCK_SIZE * 2);
-    this->position_.y = 1.0f;
+    this->position_.y = 2.0f;
     this->position_.z = z * (BLOCK_SIZE * 2);
     this->nextPosition_.x = this->position_.x;
     this->nextPosition_.y = this->position_.y;
@@ -23,9 +23,9 @@ void Player::initialize(void) {
 
 void Player::update(gdl::GameClock const & gameClock, gdl::Input & input) {
     if (this->position_.x != this->nextPosition_.x)
-        this->position_.x += 10.0f;
+        this->position_.x += 5.0f;
     else if (this->position_.z != this->nextPosition_.z)
-        this->position_.z += 10.0f;
+        this->position_.z += 5.0f;
 }
 
 void Player::draw(void) {

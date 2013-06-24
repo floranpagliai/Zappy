@@ -29,7 +29,7 @@
           <in>MyGame.h</in>
           <in>Network.h</in>
           <in>Parseur.h</in>
-          <in>Trantorien.h</in>
+          <in>Player.h</in>
           <in>Vector3f.hpp</in>
           <in>error.h</in>
           <in>xfunc.h</in>
@@ -62,7 +62,7 @@
           <in>MyGame.cpp</in>
           <in>Network.cpp</in>
           <in>Parseur.cpp</in>
-          <in>Trantorien.cpp</in>
+          <in>Player.cpp</in>
           <in>main.cpp</in>
           <in>xfunc.c</in>
         </df>

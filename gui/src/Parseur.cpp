@@ -77,6 +77,26 @@ namespace rfcFuncs {
     }
 
     void bct(MyGame* game, std::string cmd) {
+        int X = cmd.find(' ', 0);
+        int Z = cmd.find(' ', X + 1);
+        int F = cmd.find(' ', Z + 1);
+        int L = cmd.find(' ', F + 1);
+        int D = cmd.find(' ', L + 1);
+        int S = cmd.find(' ', D + 1);
+        int M = cmd.find(' ', S + 1);
+        int P = cmd.find(' ', M + 1);
+        int T = cmd.find(' ', P + 1);
+        int ressources[7];
+        ressources[0] = atoi(cmd.substr(F + 1, L - (F + 1)).c_str());
+        ressources[1] = atoi(cmd.substr(L + 1, D - (L + 1)).c_str());
+        ressources[2] = atoi(cmd.substr(D + 1, S - (D + 1)).c_str());
+        ressources[3] = atoi(cmd.substr(S + 1, M - (S + 1)).c_str());
+        ressources[4] = atoi(cmd.substr(M + 1, P - (M + 1)).c_str());
+        ressources[5] = atoi(cmd.substr(P + 1, T - (P + 1)).c_str());
+        ressources[6] = atoi(cmd.substr(T + 1, cmd.size()-(T + 1)).c_str());
+        game->putRessources(atoi(cmd.substr(X + 1, Z - (X + 1)).c_str()),
+                atoi(cmd.substr(Z + 1, F - (Z + 1)).c_str()),
+                ressources);
     }
 
     void tna(MyGame* game, std::string cmd) {
@@ -135,6 +155,10 @@ namespace rfcFuncs {
     }
 
     void pdr(MyGame* game, std::string cmd) {
+        int id = cmd.find(' ', 0);
+        int type = cmd.find(' ', id + 1);
+        game->putRessource(atoi(cmd.substr(id + 1, id - (id + 1)).c_str()),
+                (eRessource)atoi(cmd.substr(type + 1, cmd.size()-(type + 1)).c_str()));
     }
 
     void pgt(MyGame* game, std::string cmd) {
