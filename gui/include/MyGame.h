@@ -6,6 +6,7 @@
 #include "IRessourceManager.h"
 #include "Map.h"
 #include "Ressources.h"
+#include "Egg.h"
 
 #define WINDOW_HEIGHT 700
 #define WINDOW_WIDHT 1024
@@ -35,6 +36,8 @@ public:
     void setRessources(int, int, int*);
     void dropRessource(int, eRessource);
     void getRessource(int, eRessource);
+
+    void dropEgg(int id, int idPlayer, int x, int z);
 };
 
 #endif

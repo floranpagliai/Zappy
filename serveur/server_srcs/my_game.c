@@ -47,6 +47,9 @@ void		my_game(char *buf_in, int out)
   printf("%s\n", res);
   write(out, "pgt 2 1\n", strlen("pdr 1 1\n"));
 
+  printf("%s\n", res);
+  write(out, "enw 1 2 5 5\n", strlen("enw 1 1 1 1\n"));
+
 /*
   printf("%s\n", res);
   write(out, "pex 1\n", strlen("pex 1\n"));

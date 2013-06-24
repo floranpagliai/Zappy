@@ -14,7 +14,7 @@ t_Ressource ressources[6] = {
         TRANTORIEN, gdl::Image::load("gui/assets/boy.png")
     },
     {
-        RESSOURCES, gdl::Image::load("gui/assets/stones2.png")
+        EGG, gdl::Image::load("gui/assets/egg.png")
     },
     {
         RESSOURCES, gdl::Image::load("gui/assets/stones2.png")

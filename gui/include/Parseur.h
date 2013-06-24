@@ -2,6 +2,8 @@
 #define	PARSEUR_H
 
 #include <string>
+#include <vector>
+
 #include "AObject.hpp"
 #include "MyGame.h"
 

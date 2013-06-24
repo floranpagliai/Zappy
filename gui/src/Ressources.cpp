@@ -1,10 +1,3 @@
-/*
- * File:   Ressources.cpp
- * Author: floran
- *
- * Created on 24 juin 2013, 11:46
- */
-
 #include "Ressources.h"
 
 Ressources::Ressources(int x, int z, IRessourceManager* manager) : manager_(manager) {

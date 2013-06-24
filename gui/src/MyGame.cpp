@@ -135,3 +135,8 @@ void MyGame::getRessource(int id, eRessource type) {
         }
     }
 }
+
+void MyGame::dropEgg(int id, int idPlayer, int x, int z) {
+    (void)idPlayer;
+    this->objects_.push_back(new Egg(x, z, id, &this->manager_));
+}

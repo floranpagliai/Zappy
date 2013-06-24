@@ -30,6 +30,7 @@ SRC_GUI	    =	$(DIR_GUI)src/main.cpp\
 		$(DIR_GUI)src/MapElement.cpp\
 		$(DIR_GUI)src/IRessourceManager.cpp\
 		$(DIR_GUI)src/Player.cpp\
+		$(DIR_GUI)src/Egg.cpp\
 		$(DIR_GUI)src/Ressources.cpp\
 		$(DIR_GUI)src/Parseur.cpp
 

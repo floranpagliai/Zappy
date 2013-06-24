@@ -1,12 +1,3 @@
-/*
- * File:   Parseur.cpp
- * Author: floran
- *
- * Created on 20 juin 2013, 16:48
- */
-
-#include <vector>
-
 #include "Parseur.h"
 
 Parseur::Parseur() {
@@ -172,6 +163,14 @@ namespace rfcFuncs {
     }
 
     void enw(MyGame* game, std::string cmd) {
+        int id = cmd.find(' ', 0);
+        int idp = cmd.find(' ', id + 1);
+        int X = cmd.find(' ', idp + 1);
+        int Z = cmd.find(' ', X + 1);
+        game->dropEgg(atoi(cmd.substr(id + 1, idp - (id + 1)).c_str()),
+                atoi(cmd.substr(idp + 1, X - (idp + 1)).c_str()),
+                atoi(cmd.substr(X + 1, Z - (X + 1)).c_str()),
+                atoi(cmd.substr(Z + 1, cmd.size()-(Z + 1)).c_str()));
     }
 
     void eht(MyGame* game, std::string cmd) {
