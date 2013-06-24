@@ -28,17 +28,6 @@ void		my_game(char *buf_in, int out)
   printf("%s\n", res);
   write(out, "bct 0 3 1 1 0 1 0\n", strlen("bct 0 3 1 1 0 0 0\n"));
   printf("%s\n", res);
-  write(out, "bct 0 4 1 0 1 0 0\n", strlen("bct 0 4 1 0 1 0 0\n"));
-  printf("%s\n", res);
-  write(out, "bct 0 5 1 0 1 1 0\n", strlen("bct 0 4 1 0 1 0 0\n"));
-  printf("%s\n", res);
-  write(out, "bct 0 6 1 1 1 0 0\n", strlen("bct 0 4 1 0 1 0 0\n"));
-  printf("%s\n", res);
-  write(out, "bct 0 7 1 0 1 0 1\n", strlen("bct 0 4 1 0 1 0 0\n"));
-  printf("%s\n", res);
-  write(out, "bct 0 8 1 0 1 0 0\n", strlen("bct 0 4 1 0 1 0 0\n"));
-  printf("%s\n", res);
-  write(out, "bct 0 9 1 0 1 0 1\n", strlen("bct 0 4 1 0 1 0 0\n"));
 
   printf("%s\n", res);
   write(out, "pnw 1 1 1 1 1\n", strlen("pnw 1 1 1 1 1\n"));
@@ -55,13 +44,13 @@ void		my_game(char *buf_in, int out)
   printf("%s\n", res);
   write(out, "pdr 2 1\n", strlen("pdr 1 1\n"));
 
+  printf("%s\n", res);
+  write(out, "pgt 2 1\n", strlen("pdr 1 1\n"));
+
 /*
   printf("%s\n", res);
   write(out, "pex 1\n", strlen("pex 1\n"));
 */
-
-  printf("%s\n", res);
-
 }
 
 char		*my_str(char *buf_in)

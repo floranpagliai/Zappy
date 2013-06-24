@@ -32,8 +32,9 @@ public:
     void setPlayerLvl(int, int);
     void expulsePlayer(int);
 
-    void putRessources(int, int, int*);
-    void putRessource(int, eRessource);
+    void setRessources(int, int, int*);
+    void dropRessource(int, eRessource);
+    void getRessource(int, eRessource);
 };
 
 #endif

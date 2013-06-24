@@ -92,7 +92,7 @@ void MyGame::expulsePlayer(int id) {
     }
 }
 
-void MyGame::putRessources(int x, int z, int *ressources) {
+void MyGame::setRessources(int x, int z, int *ressources) {
     for (std::list<AObject*>::iterator it = this->objects_.begin(); it != this->objects_.end(); ++it) {
         if ((*it)->getType() == RESSOURCES && (*it)->getPosition().x == x * (BLOCK_SIZE * 2) && (*it)->getPosition().z == z * (BLOCK_SIZE * 2)) {
             (*it)->setRessources(ressources);
@@ -102,7 +102,7 @@ void MyGame::putRessources(int x, int z, int *ressources) {
 
 }
 
-void MyGame::putRessource(int id, eRessource type) {
+void MyGame::dropRessource(int id, eRessource type) {
     int x;
     int z;
     for (std::list<AObject*>::iterator it = this->objects_.begin(); it != this->objects_.end(); ++it) {
@@ -115,6 +115,23 @@ void MyGame::putRessource(int id, eRessource type) {
     for (std::list<AObject*>::iterator it = this->objects_.begin(); it != this->objects_.end(); ++it) {
         if ((*it)->getType() == RESSOURCES && (*it)->getPosition().x == x && (*it)->getPosition().z == z) {
             (*it)->dropRessource(type);
+        }
+    }
+}
+
+void MyGame::getRessource(int id, eRessource type) {
+    int x;
+    int z;
+    for (std::list<AObject*>::iterator it = this->objects_.begin(); it != this->objects_.end(); ++it) {
+        if ((*it)->getType() == TRANTORIEN && (*it)->getId() == id) {
+            x = (*it)->getNextPosition().x;
+            z = (*it)->getNextPosition().z;
+
+        }
+    }
+    for (std::list<AObject*>::iterator it = this->objects_.begin(); it != this->objects_.end(); ++it) {
+        if ((*it)->getType() == RESSOURCES && (*it)->getPosition().x == x && (*it)->getPosition().z == z) {
+            (*it)->getRessource(type);
         }
     }
 }

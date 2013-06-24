@@ -94,7 +94,7 @@ namespace rfcFuncs {
         ressources[4] = atoi(cmd.substr(M + 1, P - (M + 1)).c_str());
         ressources[5] = atoi(cmd.substr(P + 1, T - (P + 1)).c_str());
         ressources[6] = atoi(cmd.substr(T + 1, cmd.size()-(T + 1)).c_str());
-        game->putRessources(atoi(cmd.substr(X + 1, Z - (X + 1)).c_str()),
+        game->setRessources(atoi(cmd.substr(X + 1, Z - (X + 1)).c_str()),
                 atoi(cmd.substr(Z + 1, F - (Z + 1)).c_str()),
                 ressources);
     }
@@ -157,11 +157,15 @@ namespace rfcFuncs {
     void pdr(MyGame* game, std::string cmd) {
         int id = cmd.find(' ', 0);
         int type = cmd.find(' ', id + 1);
-        game->putRessource(atoi(cmd.substr(id + 1, id - (id + 1)).c_str()),
+        game->dropRessource(atoi(cmd.substr(id + 1, id - (id + 1)).c_str()),
                 (eRessource)atoi(cmd.substr(type + 1, cmd.size()-(type + 1)).c_str()));
     }
 
     void pgt(MyGame* game, std::string cmd) {
+        int id = cmd.find(' ', 0);
+        int type = cmd.find(' ', id + 1);
+        game->getRessource(atoi(cmd.substr(id + 1, id - (id + 1)).c_str()),
+                (eRessource)atoi(cmd.substr(type + 1, cmd.size()-(type + 1)).c_str()));
     }
 
     void pdi(MyGame* game, std::string cmd) {
@@ -183,6 +187,9 @@ namespace rfcFuncs {
     }
 
     void seg(MyGame* game, std::string cmd) {
+        int N = cmd.find(' ', 0);
+        std::cout << "GAME OVER : " << cmd.substr(N + 1, cmd.size()-(N + 1)) << " WIN" << std::endl;
+        exit(0);
     }
 
     void smg(MyGame* game, std::string cmd) {
