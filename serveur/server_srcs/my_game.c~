@@ -1,11 +1,11 @@
 /*
 ** my_game.c for zappy in /home/loukop_l//zappy-2016-paglia_f
-** 
+**
 ** Made by laurent loukopoulos
 ** Login   <loukop_l@epitech.net>
-** 
+**
 ** Started on  Wed Jun 19 18:00:01 2013 laurent loukopoulos
-** Last update Thu Jun 20 17:48:10 2013 laurent loukopoulos
+** Last update Fri Jun 21 16:50:38 2013 laurent loukopoulos
 */
 
 #include	"struct.h"
@@ -14,10 +14,23 @@ void		my_game(char *buf_in, int out)
 {
   char		*res;
 
-  printf("\nbengin\n%s\nend\n", buf_in);
-  //  write(out, "bonjour client graphique\n", strlen("bonjour client graphique\n"));
+<<<<<<< HEAD
+  write(out, "BIENVENUE\n", strlen("BIENVENUE\n"));
   res = my_str(buf_in);
   printf("%s\n", res);
+  write(out, "msz 10 10\n", strlen("msz 10 10\n"));
+  res = my_str(buf_in);
+  printf("%s\n", res);
+  write(out, "bct 0 0 0 0 0 0 0\n", strlen("bct 0 0 0 0 0 0 0\n"));
+  res = my_str(buf_in);
+  printf("%s\n", res);
+  write(out, "ppo 1 1 1 1\n", strlen("ppo 1 1 1 1\n"));
+=======
+  printf("\nbegin\n%send\n", buf_in);
+  write(out, "bonjour client\n", strlen("bonjour client\n"));
+>>>>>>> dev
+  res = my_str(buf_in);
+  printf("\n%s\n", res);
 }
 
 char		*my_str(char *buf_in)
