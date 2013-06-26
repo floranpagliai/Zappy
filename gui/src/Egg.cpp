@@ -30,13 +30,13 @@ void Egg::draw(void) {
     glBegin(GL_QUADS);
 
     glTexCoord2f(0.0f, 0.0f);
-    glVertex3f(-CHARACTER_SIZE, -CHARACTER_SIZE, -CHARACTER_SIZE);
+    glVertex3f(-BLOCK_SIZE, -BLOCK_SIZE, -BLOCK_SIZE);
     glTexCoord2f(0.0f, 1.0f);
-    glVertex3f(-CHARACTER_SIZE, -CHARACTER_SIZE, CHARACTER_SIZE);
+    glVertex3f(-BLOCK_SIZE, -BLOCK_SIZE, BLOCK_SIZE);
     glTexCoord2f(1.0f, 1.0f);
-    glVertex3f(CHARACTER_SIZE, -CHARACTER_SIZE, CHARACTER_SIZE);
+    glVertex3f(BLOCK_SIZE, -BLOCK_SIZE, BLOCK_SIZE);
     glTexCoord2f(1.0f, 0.0f);
-    glVertex3f(CHARACTER_SIZE, -CHARACTER_SIZE, -CHARACTER_SIZE);
+    glVertex3f(BLOCK_SIZE, -BLOCK_SIZE, -BLOCK_SIZE);
 
     glEnd();
     glPopMatrix();

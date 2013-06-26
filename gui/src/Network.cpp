@@ -30,16 +30,17 @@ void Network::initClient(int port, char *ip, MyGame *game) {
 
 int Network::getData() {
     int ret;
-    char buf[1024];
+    char buf[2048];
     std::string buffer;
 
-    ret = read(this->client_.s, buf, 1024);
+    ret = read(this->client_.s, buf, 2048);
     if (ret <= 0) {
         fprintf(stderr, "Connexion close.\n");
         return (-1);
     }
     buffer = buf;
     this->parseur_.parse(buffer, this->game_);
+    this->parseur_.interpret(this->game_);
     return (0);
 }
 

@@ -17,7 +17,7 @@ void		my_game(char *buf_in, int out)
   write(out, "BIENVENUE\n", strlen("BIENVENUE\n"));
   res = my_str(buf_in);
   printf("%s\n", res);
-  write(out, "msz 10 10\n", strlen("msz 10 10\n"));
+  write(out, "msz 50 50\n", strlen("msz 50 50\n"));
 
   printf("%s\n", res);
   write(out, "bct 0 0 1 1 1 1 1\n", strlen("bct 0 0 1 0 0 0 0\n"));
@@ -26,17 +26,15 @@ void		my_game(char *buf_in, int out)
   printf("%s\n", res);
   write(out, "bct 0 2 1 0 0 0 1\n", strlen("bct 0 2 1 0 0 0 0\n"));
   printf("%s\n", res);
-  write(out, "bct 0 3 1 1 0 1 0\n", strlen("bct 0 3 1 1 0 0 0\n"));
-  printf("%s\n", res);
 
   printf("%s\n", res);
-  write(out, "pnw 1 1 1 1 1\n", strlen("pnw 1 1 1 1 1\n"));
+  write(out, "pnw 1 1 1 3 1\n", strlen("pnw 1 1 1 1 1\n"));
 
     printf("%s\n", res);
-  write(out, "pnw 2 2 1 1 1\n", strlen("pnw 1 1 1 1 1\n"));
+  write(out, "pnw 2 2 1 3 1\n", strlen("pnw 1 1 1 1 1\n"));
 
   printf("%s\n", res);
-  write(out, "ppo 2 5 5 1\n", strlen("ppo 1 1 1 1\n"));
+  write(out, "ppo 2 2 2 3\n", strlen("ppo 1 1 1 1\n"));
 
   printf("%s\n", res);
   write(out, "plv 1 2\n", strlen("plv 1 2\n"));
@@ -48,12 +46,13 @@ void		my_game(char *buf_in, int out)
   write(out, "pgt 2 1\n", strlen("pdr 1 1\n"));
 
   printf("%s\n", res);
-  write(out, "enw 1 2 5 5\n", strlen("enw 1 1 1 1\n"));
+  write(out, "enw 1 2 2 2\n", strlen("enw 1 1 1 1\n"));
 
-/*
+  printf("%s\n", res);
+  write(out, "ppo 2 3 2 2\n", strlen("ppo 1 1 1 1\n"));
+
   printf("%s\n", res);
   write(out, "pex 1\n", strlen("pex 1\n"));
-*/
 }
 
 char		*my_str(char *buf_in)

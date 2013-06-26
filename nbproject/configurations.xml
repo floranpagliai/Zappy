@@ -23,6 +23,7 @@
         <df name="include">
           <in>AObject.hpp</in>
           <in>Camera.h</in>
+          <in>Egg.h</in>
           <in>IRessourceManager.h</in>
           <in>Map.h</in>
           <in>MapElement.h</in>
@@ -30,6 +31,7 @@
           <in>Network.h</in>
           <in>Parseur.h</in>
           <in>Player.h</in>
+          <in>Ressources.h</in>
           <in>Vector3f.hpp</in>
           <in>error.h</in>
           <in>xfunc.h</in>
@@ -56,6 +58,7 @@
         </df>
         <df name="src">
           <in>Camera.cpp</in>
+          <in>Egg.cpp</in>
           <in>IRessourceManager.cpp</in>
           <in>Map.cpp</in>
           <in>MapElement.cpp</in>
@@ -63,6 +66,7 @@
           <in>Network.cpp</in>
           <in>Parseur.cpp</in>
           <in>Player.cpp</in>
+          <in>Ressources.cpp</in>
           <in>main.cpp</in>
           <in>xfunc.c</in>
         </df>

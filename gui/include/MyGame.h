@@ -16,6 +16,7 @@ private:
     std::list<AObject*> objects_;
     Camera camera_;
     IRessourceManager manager_;
+    gdl::Image loading_;
 
 public:
     Map map_;
@@ -25,6 +26,8 @@ public:
     virtual void update(void);
     virtual void draw(void);
     virtual void unload(void);
+
+    void loadingScreen(int, int);
 
     void generateMap(int, int);
 
@@ -37,7 +40,7 @@ public:
     void dropRessource(int, eRessource);
     void getRessource(int, eRessource);
 
-    void dropEgg(int id, int idPlayer, int x, int z);
+    void dropEgg(int, int, int, int);
 };
 
 #endif

@@ -6,16 +6,18 @@ void MyGame::initialize() {
     window_.setWidth(WINDOW_WIDHT);
     window_.create();
     camera_.initialize();
-
+    this->loading_ = gdl::Image::load("gui/assets/loading.jpg");
     for (std::list<AObject*>::iterator it = this->objects_.begin(); it != this->objects_.end(); ++it)
         (*it)->initialize();
 }
 
 void MyGame::update(void) {
+    glViewport(0, 0, window_.getWidth(), window_.getHeight());
+    while (gameClock_.getTotalGameTime() < 3.0f)
+        loadingScreen(window_.getHeight(), window_.getWidth());
     for (std::list<AObject*>::iterator it = this->objects_.begin(); it != this->objects_.end(); ++it) {
         (*it)->update(gameClock_, input_);
     }
-    sleep(0.9);
     camera_.update(gameClock_, input_);
     if (input_.isKeyDown(gdl::Keys::Right) == true && camera_.getPosition().x - 10.0f <= (this->map_.getSizeZ() * BLOCK_SIZE * 2 - BLOCK_SIZE * 2))
         camera_.setPosition(camera_.getPosition().x + 10.0f, camera_.getPosition().y, camera_.getPosition().z);
@@ -46,6 +48,31 @@ void MyGame::draw(void) {
     glClearDepth(1.f);
     for (std::list<AObject*>::iterator it = this->objects_.begin(); it != this->objects_.end(); ++it)
         (*it)->draw();
+    loading_.bind();
+    glEnable(GL_TEXTURE_2D);
+    glPushMatrix();
+
+    glViewport(0, 0, 100, 100);
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+    gluOrtho2D(0, 100, 0, 100);
+
+    glBegin(GL_QUADS);
+
+    glTexCoord2f(0.0f, 0.0f);
+    glVertex3f(0.0f, 100, 0.0f);
+
+    glTexCoord2f(0.0f, 1.0f);
+    glVertex3f(0.0f, 0.0f, 0.0f);
+
+    glTexCoord2f(1.0f, 1.0f);
+    glVertex3f(100, 0.0f, 0.0f);
+
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f(100, 100, 0.0f);
+
+    glEnd();
+    glPopMatrix();
     this->window_.display();
 }
 
@@ -53,6 +80,39 @@ void MyGame::unload(void) {
     for (std::list<AObject *>::iterator it = this->objects_.begin(); it != this->objects_.end(); it++)
         delete (*it);
     this->objects_.clear();
+}
+
+void MyGame::loadingScreen(int height, int widht) {
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+    glClearDepth(1.f);
+
+    loading_.bind();
+    glEnable(GL_TEXTURE_2D);
+    glPushMatrix();
+
+    glViewport(0, 0, widht, height);
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+    gluOrtho2D(0, widht, 0, height);
+
+    glBegin(GL_QUADS);
+
+    glTexCoord2f(0.0f, 0.0f);
+    glVertex3f(0.0f, height, 0.0f);
+
+    glTexCoord2f(0.0f, 1.0f);
+    glVertex3f(0.0f, 0.0f, 0.0f);
+
+    glTexCoord2f(1.0f, 1.0f);
+    glVertex3f(widht, 0.0f, 0.0f);
+
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f(widht, height, 0.0f);
+
+    glEnd();
+    glPopMatrix();
+    this->window_.display();
 }
 
 void MyGame::generateMap(int x, int z) {
@@ -64,10 +124,10 @@ void MyGame::invocatePlayer(int id, int x, int z, eDir dir, int lvl) {
 }
 
 void MyGame::movePlayer(int id, int x, int z, eDir dir) {
-    (void) dir;
     for (std::list<AObject*>::iterator it = this->objects_.begin(); it != this->objects_.end(); ++it) {
         if ((*it)->getType() == TRANTORIEN && (*it)->getId() == id) {
             (*it)->setNextPosition(x * (BLOCK_SIZE * 2), (*it)->getPosition().y, z * (BLOCK_SIZE * 2));
+            (*it)->setDir(dir);
             break;
         }
     }
@@ -137,6 +197,8 @@ void MyGame::getRessource(int id, eRessource type) {
 }
 
 void MyGame::dropEgg(int id, int idPlayer, int x, int z) {
-    (void)idPlayer;
+    (void) idPlayer;
     this->objects_.push_back(new Egg(x, z, id, &this->manager_));
 }
+
+

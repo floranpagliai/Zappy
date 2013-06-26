@@ -44,7 +44,7 @@ enum eType {
 };
 
 enum eRessource {
-    FOOD,
+    FOOD = 0,
     LINEMATE,
     DERAUMATRE,
     SIBUR,
@@ -54,10 +54,10 @@ enum eRessource {
 };
 
 enum eDir {
-    N = 1,
-    E,
-    S,
-    O
+    NORD = 1,
+    EST,
+    SUD,
+    OUEST
 };
 
 class AObject {
@@ -113,6 +113,9 @@ public:
     }
 
     virtual void setLvl(int) {
+    };
+
+    virtual void setDir(eDir) {
     };
 
     virtual void setRessources(int*) {

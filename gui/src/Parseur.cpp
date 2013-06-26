@@ -42,7 +42,6 @@ void Parseur::parse(std::string str, MyGame* game) {
             std::cout << "Receive : " << buffer << std::endl;
         }
     }
-    this->interpret(game);
 }
 
 bool Parseur::interpret(MyGame* game) {
@@ -52,6 +51,7 @@ bool Parseur::interpret(MyGame* game) {
         if (this->funcs[it->substr(0, 3)]) {
             std::cout << "Exec : " << *it << std::endl;
             this->funcs[it->substr(0, 3)](game, *it);
+            usleep(350000);
         }
     }
     list.clear();
@@ -160,6 +160,8 @@ namespace rfcFuncs {
     }
 
     void pdi(MyGame* game, std::string cmd) {
+        int id = cmd.find(' ', 0);
+        game->expulsePlayer(atoi(cmd.substr(id + 1, id - (id + 1)).c_str()));
     }
 
     void enw(MyGame* game, std::string cmd) {
