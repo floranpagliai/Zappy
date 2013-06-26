@@ -1,24 +1,24 @@
 /*
 ** my_game.c for zappy in /home/loukop_l//zappy-2016-paglia_f
-**
+** 
 ** Made by laurent loukopoulos
 ** Login   <loukop_l@epitech.net>
-**
+** 
 ** Started on  Wed Jun 19 18:00:01 2013 laurent loukopoulos
-** Last update Fri Jun 21 16:50:38 2013 laurent loukopoulos
+** Last update Mon Jun 24 14:43:02 2013 laurent loukopoulos
 */
 
 #include	"struct.h"
+#include	"my_game.h"
 
 void		my_game(char *buf_in, int out)
 {
-  char		*res;
+  t_game	game;
 
-  printf("\nbegin\n%send\n", buf_in);
-  write(out, "bonjour client\n", strlen("bonjour client\n"));
-
-  res = my_str(buf_in);
-  printf("\n%s\n", res);
+  game.buff = buf_in;
+  game.fd_out = out;
+  game.save = my_str(buf_in);
+  my_enroll_client(&game);
 }
 
 char		*my_str(char *buf_in)

@@ -5,7 +5,7 @@
 ** Login   <loukop_l@epitech.net>
 ** 
 ** Started on  Sun May 26 01:03:13 2013 laurent loukopoulos
-** Last update Wed Jun 19 18:01:17 2013 laurent loukopoulos
+** Last update Mon Jun 24 15:12:14 2013 laurent loukopoulos
 */
 
 #include	<stdio.h>
@@ -86,10 +86,6 @@ void            do_client(t_server *server)
       if (FD_ISSET(c->fd, &(server->fd_read)))
 	c = do_client_read(c, server);
       if (c)
-	{
-	  if (FD_ISSET(c->fd, &(server->fd_write)))
-	    do_client_write(c);
-	  c = c->next;
-	}
+	c = c->next;
     }
 }

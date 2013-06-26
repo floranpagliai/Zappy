@@ -5,7 +5,7 @@
 ## Login   <pojer_s@epitech.net>
 ## 
 ## Started on  Sun Apr 24 22:48:44 2011 steven pojer
-## Last update Wed Jun 19 18:02:26 2013 laurent loukopoulos
+## Last update Mon Jun 24 14:45:08 2013 laurent loukopoulos
 ##
 
 SERVER		= ./server_srcs/serveur
@@ -19,7 +19,8 @@ SERVER_SRCS	= ./server_srcs/main.c			\
 		  ./server_srcs/my_relay.c		\
 		  ./server_srcs/server_loop.c		\
 		  ./server_srcs/my_write.c		\
-		  ./server_srcs/my_game.c
+		  ./server_srcs/my_game.c		\
+		  ./server_srcs/my_enroll.c
 
 CLIENT_SRCS	= ./client_srcs/do_client.c	\
 		  ./client_srcs/init.c		\
@@ -31,7 +32,7 @@ SERVER_OBJS	= $(SERVER_SRCS:.c=.o)
 CLIENT_OBJS	= $(CLIENT_SRCS:.c=.o)
 COMMON_OBJS	= $(COMMON_SRCS:.c=.o)
 
-CC		= gcc
+CC		= gcc -g
 CFLAGS		+= -W -Wall -I./common_srcs/ -I. -I./server_srcs/ -I./client_srcs/
 RM		= rm -f
 
