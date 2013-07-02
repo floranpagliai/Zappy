@@ -10,17 +10,18 @@ DIR_CLIENT  =	client/
 
 DIR_GUI	    =	gui/
 
-SRC_SERVER  =	$(DIR_CLIENT)src/main.c\
-		$(DIR_CLIENT)src/destroy_server.c\
-		$(DIR_CLIENT)src/do_client.c\
-		$(DIR_CLIENT)src/do_server.c\
-		$(DIR_CLIENT)src/init_server.c\
-		$(DIR_CLIENT)src/my_relay.c\
-		$(DIR_CLIENT)src/server_loop.c\
-		$(DIR_CLIENT)src/my_write.c\
-		$(DIR_CLIENT)src/my_game.c
+SRC_SERVER  =	$(DIR_SERVER)src/main.c\
+		$(DIR_SERVER)src/destroy_server.c\
+		$(DIR_SERVER)src/do_client.c\
+		$(DIR_SERVER)src/do_server.c\
+		$(DIR_SERVER)src/init_server.c\
+		$(DIR_SERVER)src/my_relay.c\
+		$(DIR_SERVER)src/server_loop.c\
+		$(DIR_SERVER)src/my_write.c\
+		$(DIR_SERVER)src/my_game.c
 
-SRC_CLIENT  =	$(DIR_CLIENT)src/main.c\
+SRC_CLIENT  =	$(DIR_CLIENT)src/main.cpp\
+		$(DIR_CLIENT)src/Network.cpp
 
 SRC_GUI	    =	$(DIR_GUI)src/main.cpp\
 		$(DIR_GUI)src/MyGame.cpp\
@@ -34,9 +35,7 @@ SRC_GUI	    =	$(DIR_GUI)src/main.cpp\
 		$(DIR_GUI)src/Ressources.cpp\
 		$(DIR_GUI)src/Parseur.cpp
 
-OBJ_CLIENT  =	$(SRC_SERVER:.c=.o)
-
-OBJ_CLIENT  =	$(SRC_CLIENT:.c=.o)
+OBJ_CLIENT  =	$(SRC_CLIENT:.cpp=.o)
 
 OBJ_GUI	    =	$(SRC_GUI:.cpp=.o)
 
@@ -55,18 +54,20 @@ $(NAME_GUI):	$(OBJ_GUI)
 		make clean
 
 $(NAME_CLIENT):	$(OBJ_CLIENT)
-		$(CC) -o $(NAME_CLIENT) $(OBJ_CLIENT) $(INCLUDE_CLIENT) $(CFLAGS)
+		$(CC) -o $(NAME_CLIENT) $(OBJ_CLIENT)
 		make clean
 
 all:		$(NAME_GUI)
 
 clean:
 		rm -f $(OBJ_GUI)
+		rm -f $(OBJ_CLIENT)
 		rm -R -f *~
 		rm -R -f *#
 
 fclean:		clean
 		rm -rf $(NAME_GUI)
+		rm -rf $(NAME_CLIENT)
 
 re:		fclean all
 
