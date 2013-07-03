@@ -28,6 +28,7 @@ public:
     virtual void unload(void);
 
     void loadingScreen(int, int);
+    void drawScore(void);
 
     void generateMap(int, int);
 

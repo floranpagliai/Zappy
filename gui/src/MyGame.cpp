@@ -48,31 +48,7 @@ void MyGame::draw(void) {
     glClearDepth(1.f);
     for (std::list<AObject*>::iterator it = this->objects_.begin(); it != this->objects_.end(); ++it)
         (*it)->draw();
-    loading_.bind();
-    glEnable(GL_TEXTURE_2D);
-    glPushMatrix();
-
-    glViewport(0, 0, 100, 100);
-    glMatrixMode(GL_PROJECTION);
-    glLoadIdentity();
-    gluOrtho2D(0, 100, 0, 100);
-
-    glBegin(GL_QUADS);
-
-    glTexCoord2f(0.0f, 0.0f);
-    glVertex3f(0.0f, 100, 0.0f);
-
-    glTexCoord2f(0.0f, 1.0f);
-    glVertex3f(0.0f, 0.0f, 0.0f);
-
-    glTexCoord2f(1.0f, 1.0f);
-    glVertex3f(100, 0.0f, 0.0f);
-
-    glTexCoord2f(1.0f, 0.0f);
-    glVertex3f(100, 100, 0.0f);
-
-    glEnd();
-    glPopMatrix();
+    this->drawScore();
     this->window_.display();
 }
 
@@ -113,6 +89,37 @@ void MyGame::loadingScreen(int height, int widht) {
     glEnd();
     glPopMatrix();
     this->window_.display();
+}
+
+void MyGame::drawScore() {
+    this->camera_.setPosition(this->camera_.getPosition().x, this->camera_.getPosition().y - 1, this->camera_.getPosition().z);
+    loading_.bind();
+    glEnable(GL_TEXTURE_2D);
+    glPushMatrix();
+
+    glViewport(0, 0, 150, 150);
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+    gluOrtho2D(0, 100, 0, 100);
+
+    glBegin(GL_QUADS);
+
+    glTexCoord2f(0.0f, 0.0f);
+    glVertex3f(0.0f, 100, 0.0f);
+
+    glTexCoord2f(0.0f, 1.0f);
+    glVertex3f(0.0f, 0.0f, 0.0f);
+
+    glTexCoord2f(1.0f, 1.0f);
+    glVertex3f(100, 0.0f, 0.0f);
+
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex3f(100, 100, 0.0f);
+
+    glEnd();
+    glPopMatrix();
+    this->camera_.setPosition(this->camera_.getPosition().x, this->camera_.getPosition().y + 1, this->camera_.getPosition().z);
+
 }
 
 void MyGame::generateMap(int x, int z) {
