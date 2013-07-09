@@ -1,14 +1,11 @@
 #include "IRessourceManager.h"
 
-t_Ressource ressources[6] = {
+t_Ressource ressources[5] = {
     {
         GROUND, gdl::Image::load("gui/assets/ground.png")
     },
     {
-        TRUNK, gdl::Image::load("gui/assets/trunk.png")
-    },
-    {
-        LEAF, gdl::Image::load("gui/assets/leaf.png")
+        SELECTOR, gdl::Image::load("gui/assets/selector.png")
     },
     {
         TRANTORIEN, gdl::Image::load("gui/assets/trantorien.png")

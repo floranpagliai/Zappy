@@ -4,16 +4,13 @@
     <df name="Zappy" root=".">
       <df name="client">
         <df name="include">
-          <in>do_client.h</in>
+          <in>Network.h</in>
           <in>error.h</in>
-          <in>init.h</in>
-          <in>struct.h</in>
           <in>xfunc.h</in>
         </df>
         <df name="src">
-          <in>do_client.c</in>
-          <in>init.c</in>
-          <in>main.c</in>
+          <in>Network.cpp</in>
+          <in>main.cpp</in>
           <in>xfunc.c</in>
         </df>
       </df>
@@ -69,6 +66,26 @@
           <in>Ressources.cpp</in>
           <in>main.cpp</in>
           <in>xfunc.c</in>
+        </df>
+      </df>
+      <df name="lib">
+        <df name="include">
+          <in>AnimStates.hpp</in>
+          <in>Assert.hpp</in>
+          <in>Clock.hpp</in>
+          <in>Color.hpp</in>
+          <in>Game.hpp</in>
+          <in>GameClock.hpp</in>
+          <in>GlError.hpp</in>
+          <in>IClock.hpp</in>
+          <in>Image.hpp</in>
+          <in>Input.hpp</in>
+          <in>Model.hpp</in>
+          <in>ModelException.hpp</in>
+          <in>Resource.hpp</in>
+          <in>Text.hpp</in>
+          <in>TextureMgr.hpp</in>
+          <in>Window.hpp</in>
         </df>
       </df>
       <df name="serveur">

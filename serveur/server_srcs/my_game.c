@@ -17,7 +17,7 @@ void		my_game(char *buf_in, int out)
   write(out, "BIENVENUE\n", strlen("BIENVENUE\n"));
   res = my_str(buf_in);
   printf("%s\n", res);
-  write(out, "msz 50 50\n", strlen("msz 50 50\n"));
+  write(out, "msz 5 5\n", strlen("msz 5 5\n"));
 
   printf("%s\n", res);
   write(out, "bct 0 0 1 1 1 1 1\n", strlen("bct 0 0 1 0 0 0 0\n"));

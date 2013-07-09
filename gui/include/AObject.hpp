@@ -36,8 +36,7 @@
 
 enum eType {
     GROUND = 0,
-    TRUNK,
-    LEAF,
+    SELECTOR,
     TRANTORIEN,
     EGG,
     RESSOURCES

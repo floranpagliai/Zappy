@@ -17,7 +17,7 @@ t_Dir tdir[4] = {
 
 Player::Player(int id, int x, int z, eDir dir, int lvl, IRessourceManager* manager) : manager_(manager) {
     this->position_.x = x * (BLOCK_SIZE * 2);
-    this->position_.y = 2.0f;
+    this->position_.y = 1.5f;
     this->position_.z = z * (BLOCK_SIZE * 2);
     this->nextPosition_.x = this->position_.x;
     this->nextPosition_.y = this->position_.y;

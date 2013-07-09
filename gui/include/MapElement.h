@@ -25,14 +25,16 @@ public:
     void draw(void);
 };
 
-class Tree : public AObject {
+class Selector : public AObject {
 private:
     IRessourceManager *manager_;
     gdl::Image texture_;
+    int maxX_;
+    int maxZ_;
 
 public:
-    Tree(int, int, int, eType, IRessourceManager *);
-    virtual ~Tree();
+    Selector(int, int, int, int);
+    virtual ~Selector();
 
     void initialize(void);
     void update(gdl::GameClock const &, gdl::Input &);
