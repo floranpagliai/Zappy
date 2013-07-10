@@ -17,6 +17,8 @@ private:
     Camera camera_;
     IRessourceManager manager_;
     gdl::Image loading_;
+    gdl::Image score_;
+    gdl::Text text_;
 
 public:
     Map map_;
@@ -28,7 +30,7 @@ public:
     virtual void unload(void);
 
     void loadingScreen(int, int);
-    void drawScore(void);
+    void drawScore(int);
 
     void generateMap(int, int);
 
@@ -43,5 +45,7 @@ public:
 
     void dropEgg(int, int, int, int);
 };
+
+std::string intToStr(int nb);
 
 #endif

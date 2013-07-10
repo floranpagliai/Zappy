@@ -120,6 +120,10 @@ public:
     virtual void setRessources(int*) {
     };
 
+    virtual int *getRessources() {
+        return 0;
+    };
+
     virtual void dropRessource(eRessource) {
     };
 

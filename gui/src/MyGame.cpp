@@ -7,6 +7,7 @@ void MyGame::initialize() {
     window_.create();
     camera_.initialize();
     this->loading_ = gdl::Image::load("gui/assets/loading.jpg");
+    this->score_ = gdl::Image::load("gui/assets/score.png");
     for (std::list<AObject*>::iterator it = this->objects_.begin(); it != this->objects_.end(); ++it)
         (*it)->initialize();
 }
@@ -49,7 +50,7 @@ void MyGame::draw(void) {
     glClearDepth(1.f);
     for (std::list<AObject*>::iterator it = this->objects_.begin(); it != this->objects_.end(); ++it)
         (*it)->draw();
-    this->drawScore();
+    this->drawScore(this->window_.getWidth());
     this->window_.display();
 }
 
@@ -92,13 +93,13 @@ void MyGame::loadingScreen(int height, int widht) {
     this->window_.display();
 }
 
-void MyGame::drawScore() {
+void MyGame::drawScore(int widht) {
     this->camera_.setPosition(this->camera_.getPosition().x, this->camera_.getPosition().y - 1, this->camera_.getPosition().z);
-    loading_.bind();
+    score_.bind();
     glEnable(GL_TEXTURE_2D);
     glPushMatrix();
 
-    glViewport(0, 0, 150, 150);
+    glViewport(0, 0, WINDOW_WIDHT, 150);
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
     gluOrtho2D(0, 100, 0, 100);
@@ -119,6 +120,27 @@ void MyGame::drawScore() {
 
     glEnd();
     glPopMatrix();
+
+    Vector3f pos;
+    int *ressources;
+    for (std::list<AObject*>::iterator it = this->objects_.begin(); it != this->objects_.end(); ++it) {
+        if ((*it)->getType() == SELECTOR) {
+            pos = (*it)->getPosition();
+            break;
+        }
+    }
+    for (std::list<AObject*>::iterator it = this->objects_.begin(); it != this->objects_.end(); ++it) {
+        if ((*it)->getType() == RESSOURCES && (*it)->getPosition().x == pos.x && (*it)->getPosition().z == pos.z) {
+            ressources = (*it)->getRessources();
+            break;
+        }
+    }
+    for (int i = 0; i != 7; i++) {
+        text_.setText(intToStr(ressources[i]));
+        text_.setSize(30);
+        text_.setPosition((50 + (widht/15) * i), 615);
+        text_.draw();
+    }
     this->camera_.setPosition(this->camera_.getPosition().x, this->camera_.getPosition().y + 1, this->camera_.getPosition().z);
 
 }
@@ -209,4 +231,9 @@ void MyGame::dropEgg(int id, int idPlayer, int x, int z) {
     this->objects_.push_back(new Egg(x, z, id, &this->manager_));
 }
 
+std::string intToStr(int nb) {
+    std::ostringstream os;
 
+    os << nb;
+    return os.str();
+}

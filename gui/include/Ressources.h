@@ -18,6 +18,7 @@ public:
     void draw(void);
 
     void setRessources(int *);
+    int *getRessources();
 
     void dropRessource(eRessource);
     void getRessource(eRessource);

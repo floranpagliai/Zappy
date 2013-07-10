@@ -50,6 +50,10 @@ void Ressources::setRessources(int *ressources) {
         this->ressources_[i] = ressources[i];
 }
 
+int *Ressources::getRessources() {
+    return this->ressources_;
+}
+
 void Ressources::dropRessource(eRessource type) {
     this->ressources_[type] += 1;
 }
