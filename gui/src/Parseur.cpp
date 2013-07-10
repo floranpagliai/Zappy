@@ -51,7 +51,8 @@ bool Parseur::interpret(MyGame* game) {
         if (this->funcs[it->substr(0, 3)]) {
             std::cout << "Exec : " << *it << std::endl;
             this->funcs[it->substr(0, 3)](game, *it);
-            usleep(350000);
+            if (it->substr(0, 3) != "bct")
+                usleep(350000);
         }
     }
     list.clear();

@@ -15,16 +15,22 @@ void Network::initClient(int port, char *ip, MyGame *game) {
     this->game_ = game;
 
     this->client_.pe = getprotobyname("TCP");
-    if ((this->client_.s = socket(AF_INET, SOCK_STREAM, this->client_.pe->p_proto)) == -1)
-        error(ERROR_SOCKET);
+    if ((this->client_.s = socket(AF_INET, SOCK_STREAM, this->client_.pe->p_proto)) == -1) {
+        fprintf(stderr, "Error socket.\n");
+        exit(-1);
+    }
     this->client_.sin.sin_family = AF_INET;
     this->client_.sin.sin_port = htons(this->port_);
-    if ((int) (this->client_.sin.sin_addr.s_addr = inet_addr(this->ip_)) == -1)
-        error("error");
+    if ((int) (this->client_.sin.sin_addr.s_addr = inet_addr(this->ip_)) == -1) {
+        fprintf(stderr, "Error.\n");
+        exit(-1);
+    }
     this->client_.pos = 0;
     this->client_.buf_ok = 0;
-    if ((this->client_.cs = connect(this->client_.s, (struct sockaddr *) &(this->client_.sin), sizeof (struct sockaddr_in))) == -1)
-        error(ERROR_CONNECT);
+    if ((this->client_.cs = connect(this->client_.s, (struct sockaddr *) &(this->client_.sin), sizeof (struct sockaddr_in))) == -1) {
+        fprintf(stderr, "Host unreachable.\n");
+        exit(-1);
+    }
     this->sendData((char*)"GRAPHIC\n");
 }
 
@@ -36,7 +42,7 @@ int Network::getData() {
     ret = read(this->client_.s, buf, 2048);
     if (ret <= 0) {
         fprintf(stderr, "Connexion close.\n");
-        return (-1);
+        exit(0);
     }
     buffer = buf;
     this->parseur_.parse(buffer, this->game_);
