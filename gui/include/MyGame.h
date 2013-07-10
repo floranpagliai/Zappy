@@ -30,7 +30,7 @@ public:
     virtual void unload(void);
 
     void loadingScreen(int, int);
-    void drawScore(int);
+    void drawScore(int, int);
 
     void generateMap(int, int);
 

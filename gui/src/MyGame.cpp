@@ -50,7 +50,7 @@ void MyGame::draw(void) {
     glClearDepth(1.f);
     for (std::list<AObject*>::iterator it = this->objects_.begin(); it != this->objects_.end(); ++it)
         (*it)->draw();
-    this->drawScore(this->window_.getWidth());
+    this->drawScore(this->window_.getHeight(), this->window_.getWidth());
     this->window_.display();
 }
 
@@ -93,13 +93,13 @@ void MyGame::loadingScreen(int height, int widht) {
     this->window_.display();
 }
 
-void MyGame::drawScore(int widht) {
+void MyGame::drawScore(int height, int widht) {
     this->camera_.setPosition(this->camera_.getPosition().x, this->camera_.getPosition().y - 1, this->camera_.getPosition().z);
     score_.bind();
     glEnable(GL_TEXTURE_2D);
     glPushMatrix();
 
-    glViewport(0, 0, WINDOW_WIDHT, 150);
+    glViewport(0, 0, height/4, (height/4)*2);
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
     gluOrtho2D(0, 100, 0, 100);
@@ -137,8 +137,8 @@ void MyGame::drawScore(int widht) {
     }
     for (int i = 0; i != 7; i++) {
         text_.setText(intToStr(ressources[i]));
-        text_.setSize(30);
-        text_.setPosition((50 + (widht/15) * i), 615);
+        text_.setSize(25);
+        text_.setPosition(50, ((height/4)/4)*i + (height/4)*2 - 25);
         text_.draw();
     }
     this->camera_.setPosition(this->camera_.getPosition().x, this->camera_.getPosition().y + 1, this->camera_.getPosition().z);
