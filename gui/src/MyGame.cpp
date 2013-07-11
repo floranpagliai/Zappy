@@ -138,7 +138,7 @@ void MyGame::drawScore(int height, int widht) {
     for (int i = 0; i != 7; i++) {
         text_.setText(intToStr(ressources[i]));
         text_.setSize(25);
-        text_.setPosition(50, ((height/4)/4)*i + (height/4)*2 - 25);
+        text_.setPosition(50, ((750/4)/4)*i + (750/4)*2 - 25);
         text_.draw();
     }
     this->camera_.setPosition(this->camera_.getPosition().x, this->camera_.getPosition().y + 1, this->camera_.getPosition().z);

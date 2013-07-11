@@ -4,6 +4,11 @@ Ground::Ground(int maxX, int maxZ, IRessourceManager* manager) : manager_(manage
     this->position_.x = maxX * (BLOCK_SIZE * 2);
     this->position_.y = 0.0f;
     this->position_.z = maxZ * (BLOCK_SIZE * 2);
+//    this->position_.x = 0.0f;
+//    this->position_.y = 0.0f;
+//    this->position_.z = 0.0f;
+//    this->maxX_ = maxX * (BLOCK_SIZE * 2);
+//    this->maxZ_ = maxZ * (BLOCK_SIZE * 2);
     this->type_ = GROUND;
     this->initialize();
 }
@@ -26,13 +31,13 @@ void Ground::draw(void) {
 
     glBegin(GL_QUADS);
 
-    glTexCoord2f(0.0f, 0.0f);
+    glTexCoord2f(0, 0);
     glVertex3f(-BLOCK_SIZE, -BLOCK_SIZE, -BLOCK_SIZE);
-    glTexCoord2f(0.0f, 1.0f);
+    glTexCoord2f(0, 1);
     glVertex3f(-BLOCK_SIZE, -BLOCK_SIZE, BLOCK_SIZE);
-    glTexCoord2f(1.0f, 1.0f);
+    glTexCoord2f(1, 1);
     glVertex3f(BLOCK_SIZE, -BLOCK_SIZE, BLOCK_SIZE);
-    glTexCoord2f(1.0f, 0.0f);
+    glTexCoord2f(1, 0);
     glVertex3f(BLOCK_SIZE, -BLOCK_SIZE, -BLOCK_SIZE);
 
     glEnd();
@@ -67,7 +72,7 @@ void Selector::update(gdl::GameClock const & gameClock, gdl::Input & input) {
         this->position_.x += BLOCK_SIZE * 2;
     }
     if (input.isKeyDown(gdl::Keys::Q) == true && this->position_.x > 0) {
-       this->position_.x -= BLOCK_SIZE * 2;
+        this->position_.x -= BLOCK_SIZE * 2;
     }
 }
 
@@ -79,13 +84,13 @@ void Selector::draw(void) {
 
     glBegin(GL_QUADS);
 
-    glTexCoord2f(0.0f, 0.0f);
+    glTexCoord2f(0, 0);
     glVertex3f(-BLOCK_SIZE, -BLOCK_SIZE, -BLOCK_SIZE);
-    glTexCoord2f(0.0f, 1.0f);
+    glTexCoord2f(0, 1);
     glVertex3f(-BLOCK_SIZE, -BLOCK_SIZE, BLOCK_SIZE);
-    glTexCoord2f(1.0f, 1.0f);
+    glTexCoord2f(1, 1);
     glVertex3f(BLOCK_SIZE, -BLOCK_SIZE, BLOCK_SIZE);
-    glTexCoord2f(1.0f, 0.0f);
+    glTexCoord2f(1, 0);
     glVertex3f(BLOCK_SIZE, -BLOCK_SIZE, -BLOCK_SIZE);
 
     glEnd();

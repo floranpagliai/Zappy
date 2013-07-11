@@ -15,6 +15,8 @@ class Ground : public AObject {
 private:
     IRessourceManager *manager_;
     gdl::Image texture_;
+        int maxX_;
+    int maxZ_;
 
 public:
     Ground(int, int, IRessourceManager *);

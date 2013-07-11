@@ -28,6 +28,7 @@ int Map::getSizeZ() const {
 void Map::generateMap(int sizeX, int sizeZ) {
     this->sizeX_ = sizeX;
     this->sizeZ_ = sizeZ;
+    //this->objects_->push_front(new Ground(sizeX, sizeZ, this->manager_));
     for (int x = 0; x != sizeX; x++) {
         for (int z = 0; z != sizeZ; z++) {
             this->objects_->push_front(new Ground(x, z, this->manager_));
