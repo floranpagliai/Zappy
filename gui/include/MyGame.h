@@ -1,6 +1,7 @@
 #ifndef MYGAME_H
 #define MYGAME_H
 
+#include <ctime>
 #include "AObject.hpp"
 #include "Camera.h"
 #include "IRessourceManager.h"
@@ -22,6 +23,8 @@ private:
 
 public:
     Map map_;
+    bool isActive_;
+    bool gameOver_;
 
 public:
     virtual void initialize(void);
@@ -47,5 +50,5 @@ public:
 };
 
 std::string intToStr(int nb);
-
+void pause(float);
 #endif

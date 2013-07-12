@@ -6,6 +6,7 @@ void MyGame::initialize() {
     window_.setWidth(WINDOW_WIDHT);
     window_.create();
     camera_.initialize();
+    this->gameOver_ = false;
     this->loading_ = gdl::Image::load("gui/assets/loading.jpg");
     this->score_ = gdl::Image::load("gui/assets/score.png");
     for (std::list<AObject*>::iterator it = this->objects_.begin(); it != this->objects_.end(); ++it)
@@ -15,6 +16,8 @@ void MyGame::initialize() {
 void MyGame::update(void) {
     glViewport(0, 0, window_.getWidth(), window_.getHeight());
     while (gameClock_.getTotalGameTime() < 3.0f)
+        loadingScreen(window_.getHeight(), window_.getWidth());
+    while (this->gameOver_ == true)
         loadingScreen(window_.getHeight(), window_.getWidth());
     for (std::list<AObject*>::iterator it = this->objects_.begin(); it != this->objects_.end(); ++it) {
         (*it)->update(gameClock_, input_);
@@ -40,7 +43,7 @@ void MyGame::update(void) {
         std::cout << "Z: " << camera_.getPosition().z << std::endl;
         std::cout << "==========================" << std::endl;
     }
-    if (input_.isKeyDown(gdl::Keys::Escape) == true)
+    if (input_.isKeyDown(gdl::Keys::Escape) == true && this->isActive_ == false)
         exit(0);
 }
 
@@ -99,7 +102,7 @@ void MyGame::drawScore(int height, int widht) {
     glEnable(GL_TEXTURE_2D);
     glPushMatrix();
 
-    glViewport(0, 0, height/4, (height/4)*2);
+    glViewport(0, 0, height / 4, (height / 4)*2);
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
     gluOrtho2D(0, 100, 0, 100);
@@ -138,7 +141,7 @@ void MyGame::drawScore(int height, int widht) {
     for (int i = 0; i != 7; i++) {
         text_.setText(intToStr(ressources[i]));
         text_.setSize(25);
-        text_.setPosition(50, ((750/4)/4)*i + (750/4)*2 - 25);
+        text_.setPosition(50, ((750 / 4) / 4) * i + (750 / 4)*2 - 25);
         text_.draw();
     }
     this->camera_.setPosition(this->camera_.getPosition().x, this->camera_.getPosition().y + 1, this->camera_.getPosition().z);
@@ -147,6 +150,7 @@ void MyGame::drawScore(int height, int widht) {
 
 void MyGame::generateMap(int x, int z) {
     this->map_ = Map(x, z, &this->objects_, &this->manager_);
+    this->camera_.setPosition(this->camera_.getPosition().x + (x * 40), this->camera_.getPosition().y + 1, this->camera_.getPosition().z + (z * 70));
 }
 
 void MyGame::invocatePlayer(int id, int x, int z, eDir dir, int lvl) {

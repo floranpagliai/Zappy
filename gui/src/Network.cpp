@@ -31,15 +31,15 @@ void Network::initClient(int port, char *ip, MyGame *game) {
         fprintf(stderr, "Host unreachable.\n");
         exit(-1);
     }
-    this->sendData((char*)"GRAPHIC\n");
+    this->sendData((char*) "GRAPHIC\n");
 }
 
 int Network::getData() {
     int ret;
-    char buf[2048];
+    char buf[100000];
     std::string buffer;
-
-    ret = read(this->client_.s, buf, 2048);
+    this->game_->isActive_ = true;
+    ret = read(this->client_.s, buf, sizeof (buf));
     if (ret <= 0) {
         fprintf(stderr, "Connexion close.\n");
         exit(0);
@@ -47,6 +47,7 @@ int Network::getData() {
     buffer = buf;
     this->parseur_.parse(buffer, this->game_);
     this->parseur_.interpret(this->game_);
+    this->game_->isActive_ = false;
     return (0);
 }
 

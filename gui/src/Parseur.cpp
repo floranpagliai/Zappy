@@ -39,7 +39,7 @@ void Parseur::parse(std::string str, MyGame* game) {
         getline(input, buffer);
         if (buffer.size() > 0) {
             this->list.push_back(buffer);
-            std::cout << "Receive : " << buffer << std::endl;
+            //std::cout << "Receive : " << buffer << std::endl;
         }
     }
 }
@@ -191,6 +191,7 @@ namespace rfcFuncs {
     void seg(MyGame* game, std::string cmd) {
         int N = cmd.find(' ', 0);
         std::cout << "GAME OVER : " << cmd.substr(N + 1, cmd.size()-(N + 1)) << " WIN" << std::endl;
+        game->gameOver_ = true;
         exit(0);
     }
 
