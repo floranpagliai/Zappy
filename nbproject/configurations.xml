@@ -9,10 +9,15 @@
           <in>xfunc.h</in>
         </df>
         <df name="src">
-          <in>Network.cpp</in>
-          <in>main.cpp</in>
-          <in>xfunc.c</in>
         </df>
+        <in>Network.cpp</in>
+        <in>main.cpp</in>
+        <in>xfunc.c</in>
+      </df>
+      <df name="common">
+        <in>error.h</in>
+        <in>xfunc.h</in>
+        <in>xfunc_file.c</in>
       </df>
       <df name="gui">
         <df name="assets">
@@ -88,26 +93,69 @@
           <in>Window.hpp</in>
         </df>
       </df>
-      <df name="serveur">
-        <df name="common_srcs">
-          <in>error.h</in>
-          <in>xfunc.h</in>
-          <in>xfunc_file.c</in>
-        </df>
-        <df name="server_srcs">
-          <in>destroy_server.c</in>
-          <in>do_client.c</in>
-          <in>do_server.c</in>
-          <in>init_server.c</in>
-          <in>main.c</in>
-          <in>my_game.c</in>
+      <df name="server">
+        <df name="include">
+          <in>my_game.h</in>
           <in>my_irc.h</in>
-          <in>my_relay.c</in>
-          <in>my_write.c</in>
-          <in>server_loop.c</in>
           <in>server_loop.h</in>
           <in>struct.h</in>
         </df>
+        <in>command.c</in>
+        <in>destroy_server.c</in>
+        <in>do_client.c</in>
+        <in>do_server.c</in>
+        <in>final_str.c</in>
+        <in>final_str_2.c</in>
+        <in>get_index.c</in>
+        <in>init_server.c</in>
+        <in>main.c</in>
+        <in>my_check_names.c</in>
+        <in>my_checks_game.c</in>
+        <in>my_checks_param.c</in>
+        <in>my_clock.c</in>
+        <in>my_create_perso.c</in>
+        <in>my_enroll.c</in>
+        <in>my_game.c</in>
+        <in>my_relay.c</in>
+        <in>my_write.c</in>
+        <in>pop_res.c</in>
+        <in>pop_res_2.c</in>
+        <in>send_tab_rfc.c</in>
+        <in>server_loop.c</in>
+      </df>
+      <df name="serveur">
+        <df name="server">
+          <df name="include">
+            <in>my_game.h</in>
+            <in>my_irc.h</in>
+            <in>server_loop.h</in>
+            <in>struct.h</in>
+          </df>
+          <in>command.c</in>
+          <in>del_graph.c</in>
+          <in>destroy_server.c</in>
+          <in>do_client.c</in>
+          <in>do_server.c</in>
+          <in>final_str.c</in>
+          <in>final_str_2.c</in>
+          <in>get_index.c</in>
+          <in>init_server.c</in>
+          <in>main.c</in>
+          <in>my_check_names.c</in>
+          <in>my_checks_game.c</in>
+          <in>my_checks_param.c</in>
+          <in>my_clock.c</in>
+          <in>my_create_perso.c</in>
+          <in>my_enroll.c</in>
+          <in>my_game.c</in>
+          <in>my_relay.c</in>
+          <in>my_write.c</in>
+          <in>pop_res.c</in>
+          <in>pop_res_2.c</in>
+          <in>send_tab_rfc.c</in>
+          <in>server_loop.c</in>
+        </df>
+        <in>Makefile</in>
       </df>
     </df>
     <logicalFolder name="ExternalFiles"

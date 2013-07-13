@@ -1,63 +1,63 @@
 ##
 ## Makefile for zappy in /home/loukop_l//zappy-2016-paglia_f
-## 
+##
 ## Made by laurent loukopoulos
 ## Login   <loukop_l@epitech.net>
-## 
+##
 ## Started on  Wed Jul  3 00:02:46 2013 laurent loukopoulos
 ## Last update Wed Jul 10 17:42:33 2013 laurent loukopoulos
 ##
 
-SERVER		= zappy_serveur
+SERVER		= zappy_server
 CLIENT		= zappy_client
 GRAPH		= zappy_graph
 
-DIR_SERVER	= ./
-DIR_CLIENT	= ./
-DIR_COMMON	= ./
+DIR_SERVER	= server/
+DIR_CLIENT	= client/
+DIR_COMMON	= common/
 DIR_GUI		= gui/
 
-INCLUDE_CLIENT	= -I./$(DIR_CLIENT)/client/include
-INCLUDE_SERVER	= -I./$(DIR_SERVER)/server/include
+INCLUDE_CLIENT	= -I./$(DIR_CLIENT)include
+INCLUDE_SERVER	= -I./$(DIR_SERVER)include
 
-SERVER_SRCS	= $(DIR_SERVER)server/main.c			\
-		  $(DIR_SERVER)server/destroy_server.c		\
-		  $(DIR_SERVER)server/do_client.c		\
-		  $(DIR_SERVER)server/do_server.c		\
-		  $(DIR_SERVER)server/init_server.c		\
-		  $(DIR_SERVER)server/my_relay.c		\
-		  $(DIR_SERVER)server/server_loop.c		\
-		  $(DIR_SERVER)server/my_write.c		\
-		  $(DIR_SERVER)server/my_game.c			\
-		  $(DIR_SERVER)server/my_enroll.c		\
-		  $(DIR_SERVER)server/my_checks_param.c		\
-		  $(DIR_SERVER)server/my_checks_game.c		\
-		  $(DIR_SERVER)server/my_check_names.c		\
-		  $(DIR_SERVER)server/my_clock.c		\
-		  $(DIR_SERVER)server/my_create_perso.c		\
-		  $(DIR_SERVER)server/command.c			\
-		  $(DIR_SERVER)server/get_index.c		\
-		  $(DIR_SERVER)server/final_str_2.c		\
-		  $(DIR_SERVER)server/final_str.c		\
-		  $(DIR_SERVER)server/pop_res_2.c		\
-		  $(DIR_SERVER)server/pop_res.c			\
-		  $(DIR_SERVER)server/send_tab_rfc.c
+SERVER_SRCS	= $(DIR_SERVER)main.c			\
+		  $(DIR_SERVER)destroy_server.c		\
+		  $(DIR_SERVER)do_client.c		\
+		  $(DIR_SERVER)do_server.c		\
+		  $(DIR_SERVER)init_server.c		\
+		  $(DIR_SERVER)my_relay.c		\
+		  $(DIR_SERVER)server_loop.c		\
+		  $(DIR_SERVER)my_write.c		\
+		  $(DIR_SERVER)my_game.c			\
+		  $(DIR_SERVER)my_enroll.c		\
+		  $(DIR_SERVER)my_checks_param.c		\
+		  $(DIR_SERVER)my_checks_game.c		\
+		  $(DIR_SERVER)my_check_names.c		\
+		  $(DIR_SERVER)my_clock.c		\
+		  $(DIR_SERVER)my_create_perso.c		\
+		  $(DIR_SERVER)command.c			\
+		  $(DIR_SERVER)get_index.c		\
+		  $(DIR_SERVER)final_str_2.c		\
+		  $(DIR_SERVER)final_str.c		\
+		  $(DIR_SERVER)pop_res_2.c		\
+		  $(DIR_SERVER)pop_res.c			\
+		  $(DIR_SERVER)send_tab_rfc.c
 
 CC		= gcc -g
 CPP		= g++
 
-CLIENT_SRCS	= $(DIR_CLIENT)client/main.cpp			\
-		  $(DIR_CLIENT)client/Network.cpp		\
-		  $(DIR_CLIENT)client/xfunc.cpp
+CLIENT_SRCS	= $(DIR_CLIENT)main.cpp			\
+		  $(DIR_CLIENT)Network.cpp		\
+		  $(DIR_CLIENT)xfunc.cpp
 
-COMMON_SRCS	= $(DIR_COMMON)common/xfunc_file.c
+COMMON_SRCS	= $(DIR_COMMON)xfunc_file.c
 
 SERVER_OBJS	= $(SERVER_SRCS:.c=.o)
 CLIENT_OBJS	= $(CLIENT_SRCS:.cpp=.o)
 COMMON_OBJS	= $(COMMON_SRCS:.c=.o)
 
 
-CFLAGS		+= -W -Wall -I$(DIR_COMMON)common/ -I. $(INCLUDE_SERVER)
+CFLAGS		+= -W -Wall -I$(DIR_COMMON) -I. $(INCLUDE_SERVER)
 CPPFLAGS	+= -W -Wall -I. $(INCLUDE_CLIENT)
 
 RM		= rm -f

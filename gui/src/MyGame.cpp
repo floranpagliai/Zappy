@@ -36,13 +36,6 @@ void MyGame::update(void) {
         camera_.setPosition(camera_.getPosition().x, camera_.getPosition().y + 10.0f, camera_.getPosition().z);
     if (input_.isKeyDown(gdl::Keys::F2) == true && camera_.getPosition().y - 10.0f >= 0)
         camera_.setPosition(camera_.getPosition().x, camera_.getPosition().y - 10.0f, camera_.getPosition().z);
-    if (input_.isKeyDown(gdl::Keys::F3) == true) {
-        std::cout << "==========================" << std::endl;
-        std::cout << "X: " << camera_.getPosition().x << std::endl;
-        std::cout << "Y: " << camera_.getPosition().y << std::endl;
-        std::cout << "Z: " << camera_.getPosition().z << std::endl;
-        std::cout << "==========================" << std::endl;
-    }
     if (input_.isKeyDown(gdl::Keys::Escape) == true && this->isActive_ == false)
         exit(0);
 }
