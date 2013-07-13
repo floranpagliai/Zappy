@@ -1,9 +1,9 @@
 /*
 ** my_game.h for zappy in /home/loukop_l//zappy-2016-paglia_f/server_srcs
-** 
+**
 ** Made by laurent loukopoulos
 ** Login   <loukop_l@epitech.net>
-** 
+**
 ** Started on  Mon Jun 24 11:35:29 2013 laurent loukopoulos
 ** Last update Wed Jul 10 20:24:13 2013 laurent loukopoulos
 */

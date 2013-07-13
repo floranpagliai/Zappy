@@ -49,6 +49,8 @@ bool Parseur::interpret(MyGame* game) {
         return (true);
     for (std::list<std::string>::iterator it = list.begin(); it != list.end(); it++) {
         if (this->funcs[it->substr(0, 3)]) {
+            if (it->find('#') != std::string::npos)
+                it->erase(it->find('#'), 1);
             std::cout << "Exec : " << *it << std::endl;
             this->funcs[it->substr(0, 3)](game, *it);
             if (it->substr(0, 3) != "bct")
@@ -150,14 +152,14 @@ namespace rfcFuncs {
         int id = cmd.find(' ', 0);
         int type = cmd.find(' ', id + 1);
         game->dropRessource(atoi(cmd.substr(id + 1, id - (id + 1)).c_str()),
-                (eRessource)atoi(cmd.substr(type + 1, cmd.size()-(type + 1)).c_str()));
+                (eRessource) atoi(cmd.substr(type + 1, cmd.size()-(type + 1)).c_str()));
     }
 
     void pgt(MyGame* game, std::string cmd) {
         int id = cmd.find(' ', 0);
         int type = cmd.find(' ', id + 1);
         game->getRessource(atoi(cmd.substr(id + 1, id - (id + 1)).c_str()),
-                (eRessource)atoi(cmd.substr(type + 1, cmd.size()-(type + 1)).c_str()));
+                (eRessource) atoi(cmd.substr(type + 1, cmd.size()-(type + 1)).c_str()));
     }
 
     void pdi(MyGame* game, std::string cmd) {

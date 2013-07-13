@@ -1,9 +1,9 @@
 /*
 ** my_enroll.c for zappy in /home/loukop_l//zappy-2016-paglia_f/server_srcs
-** 
+**
 ** Made by laurent loukopoulos
 ** Login   <loukop_l@epitech.net>
-** 
+**
 ** Started on  Mon Jun 24 11:41:20 2013 laurent loukopoulos
 ** Last update Wed Jul 10 20:22:34 2013 laurent loukopoulos
 */
@@ -28,7 +28,7 @@ void		my_enroll_client(t_game *game)
   else
     {
       s = command_valid(game);
-      if (s != -1) 
+      if (s != -1)
 	dprintf(game->fd_out, "good command\n");
       else if (s == -1 && (strcmp(game->save, "GRAPHIC\n") != 0))
 	dprintf(game->fd_out, "wrong command\n");
