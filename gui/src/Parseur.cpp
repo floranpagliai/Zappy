@@ -39,7 +39,6 @@ void Parseur::parse(std::string str, MyGame* game) {
         getline(input, buffer);
         if (buffer.size() > 0) {
             this->list.push_back(buffer);
-            //std::cout << "Receive : " << buffer << std::endl;
         }
     }
 }
@@ -51,7 +50,6 @@ bool Parseur::interpret(MyGame* game) {
         if (this->funcs[it->substr(0, 3)]) {
             if (it->find('#') != std::string::npos)
                 it->erase(it->find('#'), 1);
-            std::cout << "Exec : " << *it << std::endl;
             this->funcs[it->substr(0, 3)](game, *it);
             if (it->substr(0, 3) != "bct")
                 usleep(350000);
