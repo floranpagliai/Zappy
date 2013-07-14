@@ -11,6 +11,7 @@ void MyGame::initialize() {
     this->score_ = gdl::Image::load("gui/assets/score.png");
     for (std::list<AObject*>::iterator it = this->objects_.begin(); it != this->objects_.end(); ++it)
         (*it)->initialize();
+    this->camera_.setPosition(this->camera_.getPosition().x + 40 *this->map_.getSizeX(), this->camera_.getPosition().y, this->camera_.getPosition().z + 65 *this->map_.getSizeZ());
 }
 
 void MyGame::update(void) {
