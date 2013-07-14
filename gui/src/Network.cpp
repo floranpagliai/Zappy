@@ -31,6 +31,7 @@ void Network::initClient(int port, char *ip, MyGame *game) {
         fprintf(stderr, "Host unreachable.\n");
         exit(-1);
     }
+    usleep(10000);
     this->sendData((char*) "GRAPHIC\n");
 }
 

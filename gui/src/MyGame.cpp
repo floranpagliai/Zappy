@@ -143,7 +143,6 @@ void MyGame::drawScore(int height, int widht) {
 
 void MyGame::generateMap(int x, int z) {
     this->map_ = Map(x, z, &this->objects_, &this->manager_);
-    this->camera_.setPosition(this->camera_.getPosition().x + (x * 40), this->camera_.getPosition().y + 1, this->camera_.getPosition().z + (z * 70));
 }
 
 void MyGame::invocatePlayer(int id, int x, int z, eDir dir, int lvl) {
